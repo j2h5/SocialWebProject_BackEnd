@@ -4,8 +4,8 @@
 <mapper namespace="com.bit.fin.mapper.UserMapper">
 
 
-<select id="getUser" resultType="user">
-	select * from user1
+<select id="getUser" parameterType="String" resultType="user">
+	select * from user1 where u_id=#{u_id}
 </select>
 
 </mapper>
