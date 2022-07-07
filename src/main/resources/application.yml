@@ -20,7 +20,7 @@ spring:
        dialect: org.hibernate.dialect.MySQL8Dialect
         
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-timeout: 5000
       validation-timeout: 1000

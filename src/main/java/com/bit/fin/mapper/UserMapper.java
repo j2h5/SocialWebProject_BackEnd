@@ -10,5 +10,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserMapper {
 
     Optional<UserDto> findOneWithAuthoritiesByUsername(String username);
-    public UserDto getUser(String u_id);
+    public UserDto getUser();
 }
