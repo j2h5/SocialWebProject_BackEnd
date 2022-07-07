@@ -20,6 +20,7 @@ spring:
        dialect: org.hibernate.dialect.MySQL8Dialect
         
   datasource:
+    driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connection-timeout: 5000
       validation-timeout: 1000
@@ -42,6 +43,6 @@ jwt:
       shutup.code.scrt: debug
 
   mybatis:
-    type-aliases-package: com.bit.fnl.mapper, com.bit.fnl.dto
+    type-aliases-package: com.bit.fin.mapper, com.bit.fin.dto
     mapper-locations:
       - /mapper/**/*.xml

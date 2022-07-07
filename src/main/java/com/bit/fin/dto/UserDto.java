@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
