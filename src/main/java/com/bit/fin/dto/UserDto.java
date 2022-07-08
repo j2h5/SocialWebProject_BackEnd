@@ -3,12 +3,14 @@ package com.bit.fin.dto;
 import com.bit.fin.entity.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.apache.ibatis.type.Alias;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Alias("user")
 @Getter
 @Setter
 @Builder
