@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class UserController {
