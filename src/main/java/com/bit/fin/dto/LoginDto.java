@@ -11,11 +11,11 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class LoginDto {
 
-    //@NotNull
-    //@Size(min = 3, max = 50)  //@Valid 관련
-    private String u_id; //이후 valid 여기에 적용???
+    @NotNull
+    @Size(min = 3, max = 50)  //@Valid 관련
+    private String username;
 
-    //@NotNull
-    //@Size(min = 3, max = 100)
-    private String u_password;
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String password;
 }

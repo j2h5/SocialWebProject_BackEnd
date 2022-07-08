@@ -1,12 +1,12 @@
 package com.bit.fin.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthorityDto {
-    private String authority_name;
+    private String authorityName;
 }

@@ -1,22 +1,45 @@
 package com.bit.fin.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.bit.fin.entity.User;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-import org.apache.ibatis.type.Alias;
-
-@Alias("user")
-@Data
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDto {
 
-    private String u_id;
-    private String u_password;
-    private String u_name;
-    private String u_authority;
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String username;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @NotNull
+    @Size(min = 3, max = 100)
+    private String password;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String nickname;
+
+    private Set<AuthorityDto> authorityDtoSet;
+
+    public static UserDto from(User user) {
+        if(user == null) return null;
+
+        return UserDto.builder()
+                .username(user.getUsername())
+                .nickname(user.getNickname())
+                .authorityDtoSet(user.getAuthorities().stream()
+                        .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
+                        .collect(Collectors.toSet()))
+                .build();
+    }
 }
