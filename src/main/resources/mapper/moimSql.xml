@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.moimMapper">
-	 
+<mapper namespace="com.bit.fin.mapper.MoimMapper">
+	
+	<!--  
 	<insert id="insertmoim" parameterType="moim">
       insert into moim (moim_name,moim_leader,moim_place,moim_count,moim_photo,moim_content,moim_writeday)
       values (#{moim_name},#{moim_leader},#{moim_place},#{moim_count},#{moim_photo},#{moim_content},now())
+   	</insert>
+   	-->
+   	
+   	
+   	<!-- moim_content,moim_photo 빠져있음 !!!!! -->
+   <insert id="insertmoim" parameterType="moim">
+      insert into moim (moim_name,moim_leader,moim_place,moim_count,moim_writeday)
+      values (#{moim_name},#{moim_leader},#{moim_place},#{moim_count},now())
    	</insert>
    
 </mapper>

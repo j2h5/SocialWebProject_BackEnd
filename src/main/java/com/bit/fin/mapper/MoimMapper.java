@@ -10,5 +10,4 @@ import com.bit.fin.dto.MoimDto;
 public interface MoimMapper {
 	public void insertmoim(MoimDto dto);
 	public List<MoimDto> getmoimList(int num);
-	
 }

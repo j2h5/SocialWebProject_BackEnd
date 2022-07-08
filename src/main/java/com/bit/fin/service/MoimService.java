@@ -12,18 +12,9 @@ import com.bit.fin.mapper.MoimMapper;
 public class MoimService {
 	
 	@Autowired
-	   private MoimMapper shopMapper;
+	private MoimMapper moimMapper;
 	   
-	   public void insertShop(MoimDto dto)
-	   {
-		   shopMapper.insertmoim(dto);
-	   }
-	   
-//	   public List<MoimDto> getMoimDatas()
-//	   {
-//	      return shopMapper.getmoimList();
-//	   
-//	   }
+//	private void insertmoim(MoimDto dto);
 
 
 }

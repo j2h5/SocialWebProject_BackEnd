@@ -15,16 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.bit.fin.dto.MoimDto;
+import com.bit.fin.mapper.MoimMapper;
 import com.bit.fin.service.MoimService;
 import com.bit.fin.util.FileUtil;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/Moim")
+@RequestMapping("/moim")
 public class MoimController {
 
 	@Autowired
-	private MoimService shopService;
+	private MoimService moimService;
+	
+	@Autowired
+	MoimMapper moimmappere;
 
 	String photoName; //리액트에서 업로드한 이미지명(변경)된 이미지명 일수도
 
@@ -66,10 +70,7 @@ public class MoimController {
 	@PostMapping("/insert")
 	public void insertShop(@RequestBody MoimDto dto)
 	{
-		//업로드한 사진명
-		dto.setMoim_photo(photoName);
-		shopService.insertShop(dto);
-		photoName=null;
+		moimmappere.insertmoim(dto);
 	}
 
 	
