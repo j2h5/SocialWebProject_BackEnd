@@ -77,7 +77,7 @@ public class ChallengeController {
 	{	
 		//업로드한 사진명
 		dto.setCh_title_photo(photoName);
-		challengeService.insertChallenge(dto);
+		challengeMapper.insertChallenge(dto);
 		photoName = null;
 	}
 	
