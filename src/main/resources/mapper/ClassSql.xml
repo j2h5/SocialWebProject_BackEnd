@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bit.fin.mapper.ClassMapper">
+   <insert id="insertClass" parameterType="class">
+      insert into class (tutor_id,class_category,class_location,class_name,
+      class_photo1,class_photo2,class_photo3,class_photo4,class_photo5,
+      class_target,class_price,class_hour,classoption_num,
+      class_intro,class_summ,class_curri,class_anoun,class_confirm,class_signday)      
+      values (#{tutor_id},#{class_category},#{class_location},#{class_name},
+      #{class_photo1},#{class_photo2},#{class_photo3},#{class_photo4},#{class_photo5},
+      #{class_target},#{class_price},#{class_hour},#{classoption_num},
+      #{class_intro},#{class_summ},#{class_curri},#{class_anoun},#{class_confirm},now())
+   </insert>
+   
+   <insert id="insertClassOption" parameterType="classoption">
+      insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
+      values (#{class_num},#{classoption_day},#{classoption_starttime},#{classoption_endtime},#{classoption_totalperson})      
+   </insert>
+   <select id="getTotalCount" resultType="int">
+      select count(*) from class
+   </select>
+   
+   <select id="getAllDatas" resultType="class">
+      select * from class order by class_num
+   </select>
+   
+   <select id="getData" parameterType="int" resultType="class">
+      select * from class where class_num=#{class_num}
+   </select>
+   
+   <!-- parameter는 pnum을 받아서 들어가므로  product와 차이가있음 -->
+   <select id="getClassoptionList" resultType="classoption" parameterType="int">
+      select * from classoption where class_num=#{class_num}
+   </select>
+   
+   <delete id="deleteClass" parameterType="int">
+      delete from class where class_num=#{class_num}
+   </delete>
+   
+   <update id="updateClass" parameterType="class">
+        update product set pname=#{pname}, pprice=#{pprice}, pcate1=#{pcate1}, pcate2=#{pcate2}, pphoto=#{pphoto}, pphoto2=#{pphoto2}, pcontent=#{pcontent}
+        <if test="pphoto!=null">
+           ,pphoto=#{pphoto}
+        </if>
+        where pnum=#{pnum}
+    </update>
+   
+</mapper>
