@@ -7,8 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.bit.fin.dto.ChallengeDto;
 
-import data.dto.BoardDto;
-
 @Mapper
 public interface ChallengeMapper {
 	public void insertChallenge(ChallengeDto dto);

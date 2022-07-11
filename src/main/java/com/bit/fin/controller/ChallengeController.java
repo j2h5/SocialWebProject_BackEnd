@@ -21,12 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bit.fin.dto.ChallengeDto;
 import com.bit.fin.mapper.ChallengeMapper;
-import com.bit.fin.mapper.MoimMapper;
 import com.bit.fin.service.ChallengeService;
 import com.bit.fin.util.FileUtil;
-
-import data.dto.BoardDto;
-
 
 @RestController
 @CrossOrigin
