@@ -28,7 +28,7 @@ public class MoimController {
 	private MoimService moimService;
 	
 	@Autowired
-	MoimMapper moimmappere;
+	MoimMapper moimmapper;
 
 	String photoName; //리액트에서 업로드한 이미지명(변경)된 이미지명 일수도
 
@@ -70,7 +70,9 @@ public class MoimController {
 	@PostMapping("/insert")
 	public void insertShop(@RequestBody MoimDto dto)
 	{
-		moimmappere.insertmoim(dto);
+		
+		System.out.println(dto);
+		moimmapper.insertmoim(dto);
 	}
 
 	
