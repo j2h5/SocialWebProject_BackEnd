@@ -11,24 +11,24 @@ import lombok.Data;
 @Alias("challenge")
 @Data
 public class ChallengeDto {
-	private int challenge_id;
-	private String challenge_title;
-	private String challenge_title_photo;
-	private String challenge_content;
-	private String challenge_add_photos;
+	private int ch_id;
+	private String ch_category;
+	private String ch_title;
+	private String ch_title_photo;
+	private String ch_content;
+	private String ch_add_photos;
 	
-	private String challenge_certification_photos;
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private LocalDate challenge_startday;
-	
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private LocalDate challenge_endday;
+	private String ch_certifi_exphoto;
+	private String ch_certifi_exphoto2;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	private LocalDate challenge_countday;
+	private LocalDate ch_startday;
 	
-	private int challenge_period;
-	private String challenge_status;
-	private int challenge_deposit;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate ch_endday;
+	
+	private int ch_period;
+	private String ch_status;
+	private int ch_deposit;
 	
 }

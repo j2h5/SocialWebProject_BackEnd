@@ -2,7 +2,9 @@ package com.bit.fin.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public class ChallengeMapper {
+import com.bit.fin.dto.ChallengeDto;
 
+@Mapper
+public interface ChallengeMapper {
+	public void insertChallenge(ChallengeDto dto);
 }
