@@ -7,4 +7,16 @@
       values (1,#{ch_category},#{ch_title})
    	</insert>
    
+    <select id = "getTotalCount" resultType="int">
+   	 	select count(*) from challenge
+   	</select>
+   	 
+   	<select id="getPagingList" parameterType="Map" resultType="challenge">
+		select * from challenge order by ch_id desc limit #{start}, #{perpage}
+	</select>
+	
+	<select id="getAllDatas" resultType="challenge">
+		select * from challenge order by ch_id desc
+	</select>
+	
 </mapper>
