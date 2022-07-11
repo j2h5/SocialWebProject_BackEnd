@@ -67,7 +67,7 @@ public class MoimController {
 		return photoName;
 	}
 
-	@PostMapping("/insert")
+	@PostMapping("/insert")  
 	public void insertShop(@RequestBody MoimDto dto)
 	{
 		
