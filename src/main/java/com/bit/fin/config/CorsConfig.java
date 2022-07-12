@@ -21,6 +21,7 @@ public class CorsConfig {
         source.registerCorsConfiguration("/test/**", config);
         source.registerCorsConfiguration("/**", config);
         
+        source.registerCorsConfiguration("/challenge/**", config);
         return new CorsFilter(source);
     }
 }

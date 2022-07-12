@@ -84,6 +84,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/moim/**").permitAll() // "/api/hello"에 대한 접근은 인증없이 허용하겠다.
                 .antMatchers("/class/**").permitAll() // "/api/hello"에 대한 접근은 인증없이 허용하겠다.
                 .antMatchers("/test/**").permitAll()
+                .antMatchers("/challenge/**").permitAll()
                 .antMatchers("/api/hello").permitAll() // "/api/hello"에 대한 접근은 인증없이 허용하겠다.
                 .antMatchers("/api/authenticate").permitAll()
                 .antMatchers("/api/signup").permitAll()

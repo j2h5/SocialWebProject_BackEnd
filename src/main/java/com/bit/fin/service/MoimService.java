@@ -15,6 +15,6 @@ public class MoimService {
 	private MoimMapper moimMapper;
 	   
 //	private void insertmoim(MoimDto dto);
-
+   
 
 }
