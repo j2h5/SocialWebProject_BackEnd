@@ -16,10 +16,8 @@ public class ChallengeDto {
 	private String ch_title;
 	private String ch_title_photo;
 	private String ch_content;
-	private String ch_add_photos;
-	
-	private String ch_certifi_exphoto;
-	private String ch_certifi_exphoto2;
+	private String ch_exphoto1;
+	private String ch_exphoto2;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate ch_startday;

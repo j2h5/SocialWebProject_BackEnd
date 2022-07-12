@@ -3,8 +3,8 @@
 <mapper namespace="com.bit.fin.mapper.ChallengeMapper">
 
    <insert id="insertChallenge" parameterType="challenge">
-      insert into challenge (ch_id, ch_category,ch_title)
-      values (1,#{ch_category},#{ch_title})
+      insert into challenge (ch_category, ch_title, ch_title_photo, ch_content, ch_deposit, ch_exphoto1, ch_exphoto2)
+      values (#{ch_category}, #{ch_title},  #{ch_title_photo}, #{ch_content}, #{ch_deposit}, #{ch_exphoto1}, #{ch_exphoto2} )
    	</insert>
    
     <select id = "getTotalCount" resultType="int">
