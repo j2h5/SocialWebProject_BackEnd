@@ -13,6 +13,7 @@ public interface ClassMapper {
    //+ - 수정
    public void insertClass(ClassDto dto);
    public void insertClassOption(ClassoptionDto odto);
+   public void insertClassOption2(List<ClassoptionDto> odto);
    
    public void deleteClass(int classnum); 
     public void updateClass(ClassDto dto);

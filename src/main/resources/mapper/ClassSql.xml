@@ -16,6 +16,12 @@
       insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
       values (#{class_num},#{classoption_day},#{classoption_starttime},#{classoption_endtime},#{classoption_totalperson})      
    </insert>
+   
+   <insert id="insertClassOption2" parameterType="list">
+      insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
+      values (#{class_num},#{classoption_day},#{classoption_starttime},#{classoption_endtime},#{classoption_totalperson})      
+   </insert>
+   
    <select id="getTotalCount" resultType="int">
       select count(*) from class
    </select>

@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.ClassoptionDto;
+import com.bit.fin.mapper.ClassMapper;
 import com.bit.fin.service.ClassService;
 import com.bit.fin.util.FileUtil;
 
@@ -34,6 +35,9 @@ public class ClassController {
    private ClassService classService;
 //   @Autowired
 //   private MemberService memberService; //이름얻기위함
+   
+   @Autowired
+   private ClassMapper classMapper;
    
    String photoName; //리액트에서 업로드한 이미지명(변경된 이미지명일수도)
 
@@ -77,6 +81,13 @@ public class ClassController {
       classService.insertClassOption(odto);
       classService.insertClass(dto);
       photoName=null; //이전 사진 삭제 안되게
+   }
+   
+   @PostMapping("/insert2")
+   public void insert2(@RequestBody List<ClassoptionDto> odto) {
+	   System.out.println(odto);
+	   
+	   classMapper.insertClassOption2(odto);
    }
    
 //   @GetMapping("/detail")
