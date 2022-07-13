@@ -85,9 +85,17 @@ public class ClassController {
    
    @PostMapping("/insert2")
    public void insert2(@RequestBody List<ClassoptionDto> odto) {
+	   
 	   System.out.println(odto);
 	   
 	   classMapper.insertClassOption2(odto);
+   }
+   @PostMapping("/insert3")
+   public void insert3(@RequestBody ClassoptionDto odto) {
+	   
+	   System.out.println(odto);
+	   
+	   classMapper.insertClassOption3(odto);
    }
    
 //   @GetMapping("/detail")
