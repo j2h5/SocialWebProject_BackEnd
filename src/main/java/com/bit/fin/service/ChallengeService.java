@@ -1,6 +1,8 @@
 package com.bit.fin.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,22 +23,26 @@ public class ChallengeService implements ChallengeServiceInter {
 
 	@Override
 	public int getTotalCount() {
-		return 0;
+		return challengeMapper.getTotalCount();
 	}
 
 	@Override
 	public List<ChallengeDto> getPagingList(int start, int perpage) {
-		return null;
+		Map<String, Integer> map = new HashMap<>();
+		map.put("start", start);
+		map.put("perpage", perpage);
+		
+		return challengeMapper.getPagingList(map);
 	}
 
 	@Override
 	public List<ChallengeDto> getAllDatas() {
-		return null;
+		return challengeMapper.getAllDatas();
 	}
 
 	@Override
 	public ChallengeDto getData(int num) {
-		return null;
+		return challengeMapper.getData(num);
 	}
 
 }
