@@ -8,4 +8,9 @@
 	select * from user1 where u_id=#{u_id}
 </select>
 
+	<insert id="insertUser" parameterType="user">
+		insert into challenge ( email, addr1, addr2, post, phone )
+		values ( #{email}, #{addr1},  #{addr2}, #{post}, #{phone} )
+	</insert>
+
 </mapper>

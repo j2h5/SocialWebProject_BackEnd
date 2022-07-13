@@ -1,7 +1,9 @@
 package com.bit.fin.controller;
 
 import com.bit.fin.dto.UserDto;
+import com.bit.fin.mapper.UserMapper;
 import com.bit.fin.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +17,12 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
+    @Autowired
     private final UserService userService;
+
+    @Autowired
+    UserMapper mapper;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -35,6 +42,7 @@ public class UserController {
     public ResponseEntity<UserDto> signup(
             @Valid @RequestBody UserDto userDto
     ) {
+        mapper.insertUser(userDto);
         //userdto를 파라미터로 받아서 UserService의 signup 메서드 수행
         return ResponseEntity.ok(userService.signup(userDto));
     }

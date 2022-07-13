@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.apache.ibatis.type.Alias;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -30,6 +31,26 @@ public class UserDto {
     @NotNull
     @Size(min = 3, max = 50)
     private String nickname;
+
+    @NotNull
+    private String email;
+
+    @NotNull
+    private int post;
+
+    @NotNull
+    private String address1;
+
+    @NotNull
+    private String address2;
+
+    @NotNull
+    private Long phone;
+
+    @NotNull
+    private String profile;
+
+    private String category;
 
     private Set<AuthorityDto> authorityDtoSet;
 
