@@ -2,6 +2,7 @@ package com.bit.fin.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,16 +87,10 @@ public class ClassController {
    @PostMapping("/insert2")
    public void insert2(@RequestBody List<ClassoptionDto> odto) {
 	   
-	   System.out.println(odto);
-	   
-	   classMapper.insertClassOption2(odto);
-   }
-   @PostMapping("/insert3")
-   public void insert3(@RequestBody ClassoptionDto odto) {
 	   
 	   System.out.println(odto);
 	   
-	   classMapper.insertClassOption3(odto);
+	   //classMapper.insertClassOption2(odto);
    }
    
 //   @GetMapping("/detail")
