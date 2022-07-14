@@ -19,12 +19,11 @@
    
    <insert id="insertClassOption2" parameterType="list">
       insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
-      values (#{class_num},#{classoption_day},#{classoption_starttime},#{classoption_endtime},#{classoption_totalperson})      
-   </insert>
-   
-   <insert id="insertClassOption3" parameterType="classoption">
-      insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
-      values (#{class_num},#{classoption_day},#{classoption_starttime},#{classoption_endtime},#{classoption_totalperson})      
+      values
+      
+      <foreach collection="list" item="item" separator=",">
+      	(#{item.class_num},#{item.classoption_day},#{item.classoption_starttime},#{item.classoption_endtime},#{item.classoption_totalperson})
+      </foreach>
    </insert>
    
    <select id="getTotalCount" resultType="int">

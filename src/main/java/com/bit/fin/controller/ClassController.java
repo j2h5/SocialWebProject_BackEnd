@@ -90,7 +90,7 @@ public class ClassController {
 	   
 	   System.out.println(odto);
 	   
-	   //classMapper.insertClassOption2(odto);
+	   classMapper.insertClassOption2(odto);
    }
    
 //   @GetMapping("/detail")
