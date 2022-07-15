@@ -94,7 +94,7 @@ public class ChallengeController {
 	{
 		System.out.println("currentPage="+currentPage);//페이징 처리
 		int totalCount; //총 갯수
-		int perPage=2; //한 페이지당 보여질 글의 갯수
+		int perPage=4; //한 페이지당 보여질 글의 갯수
 		int perBlock=5; //한 블럭당 보여질 글의 갯수 (◀이전 1,2,3,4,5 다음▶)
 		int totalPage; //총 페이지수
 		int startNum; //한 페이지에서 보여질 시작 글번호
