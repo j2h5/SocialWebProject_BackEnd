@@ -12,8 +12,8 @@
    	
    	<!-- moim_content,moim_photo 빠져있음 !!!!! -->
    <insert id="insertmoim" parameterType="moim">
-      insert into moim (moim_name,moim_leader,moim_place,moim_count,moim_writeday)
-      values (#{moim_name},#{moim_leader},#{moim_place},#{moim_count},now())
+      insert into moim (moim_name,moim_leader,moim_place,moim_count,moim_photo,moim_category,moim_writeday)
+      values (#{moim_name},#{moim_leader},#{moim_place},#{moim_count},#{moim_photo},moim_category,now())
    	</insert>
    
 </mapper>
