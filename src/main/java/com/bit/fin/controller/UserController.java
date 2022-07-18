@@ -42,7 +42,6 @@ public class UserController {
     public ResponseEntity<UserDto> signup(
             @Valid @RequestBody UserDto userDto
     ) {
-        mapper.insertUser(userDto);
         //userdto를 파라미터로 받아서 UserService의 signup 메서드 수행
         return ResponseEntity.ok(userService.signup(userDto));
     }

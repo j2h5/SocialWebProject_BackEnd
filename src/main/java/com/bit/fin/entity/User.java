@@ -17,41 +17,19 @@ import java.util.Set;
 @NoArgsConstructor
 public class User {
 
-    @JsonIgnore
     @Id // Primary Key
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto_Increment
     private Long userId;
 
-    @Column(name = "email", length = 150, unique = true)
-    private String email;
+    @Column(name = "username", length = 50, unique = true)
+    private String username;
 
     @Column(name = "password", length = 100)
     private String password;
 
-    @Column(name = "username", length = 50)
-    private String username;
-
-    @Column(name = "post", length = 50)
-    private Long post;
-
-    @Column(name = "address1", length = 100)
-    private String address1;
-
-    @Column(name = "address2", length = 100)
-    private String address2;
-
-    @Column(name = "phone", length = 100)
-    private Long phone;
-
-    @Column(name = "profile", length = 150)
-    private String profile;
-
     @Column(name = "nickname", length = 50)
     private String nickname;
-
-    @Column(name = "category", length = 50)
-    private String category;
 
     @Column(name = "activated")
     private boolean activated; //활성화 여부
@@ -62,5 +40,5 @@ public class User {
             name = "user_authority",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
-    private Set<Authority> authorities;  // 권한들에 대한 관계
+    private Set<Authority> authorities; // 권한들에 대한 관계
 }
