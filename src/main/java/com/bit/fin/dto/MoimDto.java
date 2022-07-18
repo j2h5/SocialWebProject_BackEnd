@@ -16,7 +16,7 @@ public class MoimDto {
 	private String moim_name;
 	private String moim_leader;
 	private String moim_place;
-	private String moim_count;
+	private String moim_category;
 	private String moim_photo;
 	private String moim_content;
 	@JsonFormat(pattern = "yyyy-MM-dd")
