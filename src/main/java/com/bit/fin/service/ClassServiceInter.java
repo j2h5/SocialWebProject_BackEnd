@@ -9,10 +9,11 @@ import com.bit.fin.dto.ClassoptionDto;
 public interface ClassServiceInter {
    //+ - 수정
    public void insertClass(ClassDto dto);
-   public void insertClassOption(ClassoptionDto odto);
+   public void insertClassOption(List<ClassoptionDto> odto);
+   public int maxClassnum();
    
    public void deleteClass(int classnum); 
-    public void updateClass(ClassDto dto);
+   public void updateClass(ClassDto dto);
    //전체개수
    public int getTotalCount();
    //클래스 전체리스트_일단

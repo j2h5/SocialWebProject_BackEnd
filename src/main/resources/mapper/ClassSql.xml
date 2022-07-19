@@ -5,19 +5,14 @@
       insert into class (tutor_id,class_category,class_location,class_name,
       class_photo1,class_photo2,class_photo3,class_photo4,class_photo5,
       class_target,class_price,class_hour,classoption_num,
-      class_intro,class_summ,class_curri,class_anoun,class_confirm,class_signday)      
+      class_intro,class_curri,class_anoun,class_anounok,class_confirm,class_signday)      
       values (#{tutor_id},#{class_category},#{class_location},#{class_name},
       #{class_photo1},#{class_photo2},#{class_photo3},#{class_photo4},#{class_photo5},
       #{class_target},#{class_price},#{class_hour},#{classoption_num},
-      #{class_intro},#{class_summ},#{class_curri},#{class_anoun},#{class_confirm},now())
+      #{class_intro},#{class_curri},#{class_anoun},#{class_anounok},#{class_confirm},now())
    </insert>
-   
-   <insert id="insertClassOption" parameterType="classoption">
-      insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
-      values (#{class_num},#{classoption_day},#{classoption_starttime},#{classoption_endtime},#{classoption_totalperson})      
-   </insert>
-   
-   <insert id="insertClassOption2" parameterType="list">
+      
+   <insert id="insertClassOption" parameterType="list">
       insert into classoption (class_num,classoption_day,classoption_starttime,classoption_endtime,classoption_totalperson)      
       values
       
@@ -25,6 +20,10 @@
       	(#{item.class_num},#{item.classoption_day},#{item.classoption_starttime},#{item.classoption_endtime},#{item.classoption_totalperson})
       </foreach>
    </insert>
+   
+   <select id="maxClassnum" resultType="int">
+   	  select max(class_num) from class
+   </select>
    
    <select id="getTotalCount" resultType="int">
       select count(*) from class

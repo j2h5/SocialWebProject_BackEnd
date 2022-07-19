@@ -2,15 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bit.fin.mapper.UserMapper">
-
-
-<select id="getUser" parameterType="String" resultType="user">
-	select * from user1 where u_id=#{u_id}
-</select>
-
-	<insert id="insertUser" parameterType="user">
-		insert into challenge ( email, addr1, addr2, post, phone )
-		values ( #{email}, #{addr1},  #{addr2}, #{post}, #{phone} )
-	</insert>
-
+	<select id="getUser" parameterType="String" resultType="user">
+	   select * from user1 where u_id=#{u_id}
+	</select>
 </mapper>

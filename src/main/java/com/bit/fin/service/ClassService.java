@@ -23,10 +23,16 @@ public class ClassService implements ClassServiceInter {
    }
    
    @Override
-   public void insertClassOption(ClassoptionDto odto) {
+   public void insertClassOption(List<ClassoptionDto> odto) {
       // TODO Auto-generated method stub
       classMapper.insertClassOption(odto);
    }
+   
+   @Override
+	public int maxClassnum() {
+		// TODO Auto-generated method stub
+		return classMapper.maxClassnum();
+	}
 
    @Override
    public void deleteClass(int classnum) {

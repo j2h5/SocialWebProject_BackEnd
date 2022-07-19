@@ -26,11 +26,10 @@ public class ClassDto {
    private int class_hour;
    private String classoption_num;
    private String class_intro;
-   private String class_summ;
    private String class_curri;
    private String class_anoun;
+   private boolean class_anounok;   
    private String class_confirm;
    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/seoul")
    private Timestamp class_signday;
-   private int class_permitok;
 }

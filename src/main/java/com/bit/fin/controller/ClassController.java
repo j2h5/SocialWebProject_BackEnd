@@ -26,8 +26,6 @@ import com.bit.fin.mapper.ClassMapper;
 import com.bit.fin.service.ClassService;
 import com.bit.fin.util.FileUtil;
 
-
-
 @RestController
 @CrossOrigin
 @RequestMapping("/class")
@@ -41,10 +39,10 @@ public class ClassController {
    private ClassMapper classMapper;
    
    String photoName; //리액트에서 업로드한 이미지명(변경된 이미지명일수도)
-
+   
    //리액트에서 이미지 업로드시 save폴더에 저장 후 이미지명 변환
    @PostMapping("/upload")
-   public String fileUpload(@RequestParam MultipartFile uploadFile,
+   public String fileUpload(@RequestBody MultipartFile uploadFile,
          HttpServletRequest request) {
       //파일명
       String fileName=uploadFile.getOriginalFilename();
@@ -61,7 +59,7 @@ public class ClassController {
       //파일명변경 by util.FileUtil
       FileUtil fileUtil=new FileUtil();
       photoName=fileUtil.changeFileName(fileName);
-      System.out.println("fileName="+fileName+"=>"+photoName);
+      //System.out.println("fileName="+fileName+"=>"+photoName);
 
       //save폴더에 업로드
       try {
@@ -70,41 +68,27 @@ public class ClassController {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
+      
       return photoName;
    }
-   
+
    @PostMapping("/insert")
-   public void insert(@RequestBody ClassDto dto,
-         @RequestBody ClassoptionDto odto) {
-      System.out.println(dto);
-      System.out.println(odto);
-      
-      classService.insertClassOption(odto);
-      classService.insertClass(dto);
-      photoName=null; //이전 사진 삭제 안되게
+   public void insert(@RequestBody ClassDto dto) {
+
+	   System.out.println(dto);
+	   classService.insertClass(dto);
    }
    
    @PostMapping("/insert2")
    public void insert2(@RequestBody List<ClassoptionDto> odto) {
 	   
-	   
 	   System.out.println(odto);
-	   
-	   classMapper.insertClassOption2(odto);
+	   classMapper.insertClassOption(odto);
    }
    
-//   @GetMapping("/detail")
-//   public BoardDto detail(@RequestParam int num) {
-//      //조회수 증가
-//      boardService.updateReadCount(num);
-//      //dto 반환
-//      return boardService.getData(num);
-//   }
-//   
-//   @GetMapping("/ulist")
-//   public List<BoardDto> getAllList(){
-//      return boardService.getAllDatas();
-//   }
-//   
+   @PostMapping("/maxnum")
+   public int getMaxNum() {
+	   return classService.maxClassnum();
+   }
    
    }
