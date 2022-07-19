@@ -35,39 +35,15 @@ public class ClassService implements ClassServiceInter {
 	}
 
    @Override
-   public void deleteClass(int classnum) {
+   public ClassDto getData(int class_num) {
       // TODO Auto-generated method stub
-      classMapper.deleteClass(classnum);
+      return classMapper.getData(class_num);
    }
-
+   
    @Override
-   public void updateClass(ClassDto dto) {
-      // TODO Auto-generated method stub
-      classMapper.updateClass(dto);
-   }
-
-   @Override
-   public int getTotalCount() {
-      // TODO Auto-generated method stub
-      return classMapper.getTotalCount();
-   }
-
-   @Override
-   public List<ClassDto> getAllDatas() {
-      // TODO Auto-generated method stub
-      return classMapper.getAllDatas();
-   }
-
-   @Override
-   public ClassDto getData(int classnum) {
-      // TODO Auto-generated method stub
-      return classMapper.getData(classnum);
-   }
-
-   @Override
-   public List<ClassoptionDto> getClassoptionList(int classnum) {
-      // TODO Auto-generated method stub
-      return classMapper.getClassoptionList(classnum);
-   }
+	public List<ClassoptionDto> getOptionsData(int class_num) {
+		// TODO Auto-generated method stub
+		return classMapper.getOptionsData(class_num);
+	}
 
 }

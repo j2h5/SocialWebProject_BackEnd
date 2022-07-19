@@ -25,33 +25,14 @@
    	  select max(class_num) from class
    </select>
    
-   <select id="getTotalCount" resultType="int">
-      select count(*) from class
-   </select>
-   
-   <select id="getAllDatas" resultType="class">
-      select * from class order by class_num
-   </select>
-   
    <select id="getData" parameterType="int" resultType="class">
       select * from class where class_num=#{class_num}
    </select>
    
-   <!-- parameter는 pnum을 받아서 들어가므로  product와 차이가있음 -->
-   <select id="getClassoptionList" resultType="classoption" parameterType="int">
+   <select id="getOptionsData" parameterType="int" resultType="classoption">
       select * from classoption where class_num=#{class_num}
    </select>
    
-   <delete id="deleteClass" parameterType="int">
-      delete from class where class_num=#{class_num}
-   </delete>
-   
-   <update id="updateClass" parameterType="class">
-        update product set pname=#{pname}, pprice=#{pprice}, pcate1=#{pcate1}, pcate2=#{pcate2}, pphoto=#{pphoto}, pphoto2=#{pphoto2}, pcontent=#{pcontent}
-        <if test="pphoto!=null">
-           ,pphoto=#{pphoto}
-        </if>
-        where pnum=#{pnum}
-    </update>
+
    
 </mapper>

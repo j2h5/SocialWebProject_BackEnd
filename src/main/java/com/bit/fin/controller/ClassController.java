@@ -32,8 +32,6 @@ import com.bit.fin.util.FileUtil;
 public class ClassController {
    @Autowired
    private ClassService classService;
-//   @Autowired
-//   private MemberService memberService; //이름얻기위함
    
    @Autowired
    private ClassMapper classMapper;
@@ -81,7 +79,6 @@ public class ClassController {
    
    @PostMapping("/insert2")
    public void insert2(@RequestBody List<ClassoptionDto> odto) {
-	   
 	   System.out.println(odto);
 	   classMapper.insertClassOption(odto);
    }
@@ -91,4 +88,14 @@ public class ClassController {
 	   return classService.maxClassnum();
    }
    
+   @GetMapping("/detail")
+   public ClassDto getData(@RequestParam int class_num) {
+	   return classService.getData(class_num);
    }
+   
+   @GetMapping("/detailoption")
+   public List<ClassoptionDto> getOptionsData(@RequestParam int class_num) {
+	   return classService.getOptionsData(class_num);
+   }
+   
+}
