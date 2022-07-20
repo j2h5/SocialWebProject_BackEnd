@@ -30,7 +30,7 @@
    </select>
    
    <select id="getOptionsData" parameterType="int" resultType="classoption">
-      select * from classoption where class_num=#{class_num}
+      select * from classoption where class_num=#{class_num} order by classoption_day,classoption_starttime
    </select>
    
 
