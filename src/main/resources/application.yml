@@ -25,9 +25,9 @@ spring:
       connection-timeout: 5000
       validation-timeout: 1000
       maximum-pool-size: 30
-    url: jdbc:mysql://semisemi.c6b0upyu6miu.ap-northeast-2.rds.amazonaws.com:3306/semisemi?serverTimeZone=Asia/Seoul
+    url: jdbc:mysql://finalfinal.c2qdmwcogcr4.us-west-1.rds.amazonaws.com:3306/finalfinal?serverTimeZone=Asia/Seoul
     username: admin
-    password: 123456789
+    password: final0729#
     
 jwt:
   header: Authorization

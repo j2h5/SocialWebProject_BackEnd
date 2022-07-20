@@ -22,14 +22,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto_Increment
     private Long userId;
 
-    @Column(name = "username", length = 50, unique = true)
+    @Column(name = "username", length = 100, unique = true)
     private String username;
 
     @Column(name = "password", length = 100)
     private String password;
 
-    @Column(name = "nickname", length = 50)
-    private String nickname;
+    @Column(name = "profile", length = 200)
+    private String profile;
 
     @Column(name = "activated")
     private boolean activated; //활성화 여부
