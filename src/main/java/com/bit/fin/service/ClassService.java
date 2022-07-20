@@ -45,5 +45,10 @@ public class ClassService implements ClassServiceInter {
 		// TODO Auto-generated method stub
 		return classMapper.getOptionsData(class_num);
 	}
+   
+   @Override
+   	public List<ClassDto> getAllDatas(){
+	   return classMapper.getAllDatas();
+   }
 
 }

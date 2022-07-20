@@ -33,6 +33,9 @@
       select * from classoption where class_num=#{class_num} order by classoption_day,classoption_starttime
    </select>
    
+   <select id="getAllData" resultType="class">
+   	select * from challenge order by class_num desc
+   </select>
 
    
 </mapper>

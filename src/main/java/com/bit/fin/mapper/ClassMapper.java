@@ -16,7 +16,7 @@ public interface ClassMapper {
    public int maxClassnum();
    public ClassDto getData(int class_num);
    public List<ClassoptionDto> getOptionsData(int class_num);
-   
+   public List<ClassDto> getAllDatas();
 
    
 }
