@@ -11,8 +11,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Alias("user")
-@Getter
-@Setter
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +28,7 @@ public class UserDto {
 
     @NotNull
     @Size(min = 3, max = 50)
-    private String nickname;
+    private String profile;
 
     private Set<AuthorityDto> authorityDtoSet;
 
@@ -38,7 +37,7 @@ public class UserDto {
 
         return UserDto.builder()
                 .username(user.getUsername())
-                .nickname(user.getNickname())
+                .profile(user.getProfile())
                 .authorityDtoSet(user.getAuthorities().stream()
                         .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
                         .collect(Collectors.toSet()))

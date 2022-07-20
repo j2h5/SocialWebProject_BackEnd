@@ -42,7 +42,7 @@ public class UserService {
         User user = User.builder()
                 .username(userDto.getUsername())
                 .password(passwordEncoder.encode(userDto.getPassword()))
-                .nickname(userDto.getNickname())
+                .profile(userDto.getProfile())
                 .authorities(Collections.singleton(authority))
                 .activated(true)
                 .build();
