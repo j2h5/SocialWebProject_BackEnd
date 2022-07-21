@@ -98,7 +98,7 @@ public class ClassController {
 	   return classService.getOptionsData(class_num);
    }
    
-   @GetMapping("/classlist")
+   @GetMapping("/list")
    public List<ClassDto> getAllList(){
 	   return classService.getAllDatas();
    }

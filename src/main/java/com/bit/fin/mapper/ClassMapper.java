@@ -12,7 +12,7 @@ import com.bit.fin.dto.ClassoptionDto;
 public interface ClassMapper {
    //+ - 수정
    public void insertClass(ClassDto dto);
-   public void insertClassOption(List<ClassoptionDto> odto);
+   public void insertClassOption(List<ClassoptionDto> dto);
    public int maxClassnum();
    public ClassDto getData(int class_num);
    public List<ClassoptionDto> getOptionsData(int class_num);
