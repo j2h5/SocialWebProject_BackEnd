@@ -36,15 +36,18 @@ public class ClassController {
    @Autowired
    private ClassMapper classMapper;
    
-   String photoName; //리액트에서 업로드한 이미지명(변경된 이미지명일수도)
    
    //리액트에서 이미지 업로드시 save폴더에 저장 후 이미지명 변환
    @PostMapping("/upload")
-   public String fileUpload(@RequestBody MultipartFile uploadFile,
+   public String fileUpload(@RequestBody ArrayList<MultipartFile> uploadFiles,
          HttpServletRequest request) {
+	   String fileName="";
+	   String photoName="";
+	   
+	   
+	   for(MultipartFile f:uploadFiles) {
       //파일명
-      String fileName=uploadFile.getOriginalFilename();
-
+      fileName=f.getOriginalFilename();
       //업로드할 폴더 위치구하기
       String path=request.getServletContext().getRealPath("/save");
 
@@ -61,12 +64,13 @@ public class ClassController {
 
       //save폴더에 업로드
       try {
-         uploadFile.transferTo(new File(path+"/"+photoName));
+         f.transferTo(new File(path+"/"+photoName));
       } catch (IllegalStateException | IOException e) {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
       
+	   }
       return photoName;
    }
 
