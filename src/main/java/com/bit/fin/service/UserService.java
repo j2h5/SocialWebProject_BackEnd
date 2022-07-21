@@ -1,14 +1,18 @@
 package com.bit.fin.service;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.entity.Authority;
 import com.bit.fin.entity.User;
+import com.bit.fin.mapper.UserMapper;
 import com.bit.fin.repository.UserRepository;
 import com.bit.fin.util.SecurityUtil;
 import org.apache.ibatis.javassist.bytecode.DuplicateMemberException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +22,9 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserMapper userMapper;
 
     // UserService는 위의 2개를 주입받음
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
@@ -41,6 +48,7 @@ public class UserService {
         // 위의 권한정보를 포함한 user 정보를 생성해서
         User user = User.builder()
                 .username(userDto.getUsername())
+                .email(userDto.getEmail())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .profile(userDto.getProfile())
                 .authorities(Collections.singleton(authority))
@@ -64,5 +72,9 @@ public class UserService {
     public UserDto getMyUserWithAuthorities() {
         // 현재 SecurityContext에 저장되어있는 정보만 가져올 수 있음
         return UserDto.from(SecurityUtil.getCurrentUsername().flatMap(userRepository::findOneWithAuthoritiesByUsername).orElse(null));
+    }
+
+    public int usernameCheck(String username) {
+        return userMapper.usernameCheck(username);
     }
 }

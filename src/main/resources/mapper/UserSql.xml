@@ -5,4 +5,7 @@
 	<select id="getUser" parameterType="String" resultType="user">
 	   select * from user1 where u_id=#{u_id}
 	</select>
+	<select id="usernameCheck" parameterType="String" resultType="int">
+		select count(*) from user where username=#{username}
+	</select>
 </mapper>

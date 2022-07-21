@@ -27,6 +27,10 @@ public class UserDto {
     private String password;
 
     @NotNull
+    @Size(min = 3, max = 100)
+    private String email;
+
+    @NotNull
     @Size(min = 3, max = 50)
     private String profile;
 
@@ -37,6 +41,7 @@ public class UserDto {
 
         return UserDto.builder()
                 .username(user.getUsername())
+                .email(user.getEmail())
                 .profile(user.getProfile())
                 .authorityDtoSet(user.getAuthorities().stream()
                         .map(authority -> AuthorityDto.builder().authorityName(authority.getAuthorityName()).build())
