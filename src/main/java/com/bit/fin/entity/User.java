@@ -22,13 +22,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto_Increment
     private Long userId;
 
-    @Column(name = "username", length = 100, unique = true)
+    @Column(name = "username", length = 200, unique = true)
     private String username;
 
-    @Column(name = "email", length = 100, unique = true)
+    @Column(name = "email", length = 200, unique = true)
     private String email;
 
-    @Column(name = "password", length = 100)
+    @Column(name = "password", length = 200)
     private String password;
 
     @Column(name = "profile", length = 200)

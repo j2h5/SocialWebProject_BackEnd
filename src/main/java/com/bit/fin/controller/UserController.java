@@ -45,6 +45,7 @@ public class UserController {
     public ResponseEntity<UserDto> signup(
             @Valid @RequestBody UserDto userDto
     ) {
+        System.out.println("userDto = " + userDto);
         //업로드한 사진명
         userDto.setProfile(photoName);
         photoName = null;

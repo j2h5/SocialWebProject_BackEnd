@@ -18,20 +18,20 @@ import java.util.stream.Collectors;
 public class UserDto {
 
     @NotNull
-    @Size(min = 3, max = 50)
+    @Size(min = 1, max = 200)
     private String username;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull
-    @Size(min = 3, max = 100)
+    @Size(min = 1, max = 200)
     private String password;
 
     @NotNull
-    @Size(min = 3, max = 100)
+    @Size(min = 1, max = 200)
     private String email;
 
     @NotNull
-    @Size(min = 3, max = 50)
+    @Size(min = 1, max = 200)
     private String profile;
 
     private Set<AuthorityDto> authorityDtoSet;
