@@ -19,7 +19,7 @@ public class ChattingController {
 	@MessageMapping("message")	// /app/message
 	@SendTo("/chatroom/public")
 	private ChatMessageDto receivePublicMessage(@Payload ChatMessageDto chatMessageDto) {
-		System.out.println(chatMessageDto);
+		System.out.println("public:"+chatMessageDto);
 		return chatMessageDto;
 	}
 	
