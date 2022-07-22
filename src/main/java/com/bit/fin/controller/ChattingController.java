@@ -6,9 +6,11 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.bit.fin.dto.ChatMessageDto;
 
+@CrossOrigin
 @Controller
 public class ChattingController {
 	
@@ -16,8 +18,8 @@ public class ChattingController {
 	SimpMessagingTemplate simpMessagingTemplate;
 
 
-	@MessageMapping("message")	// /app/message
-	@SendTo("/chatroom/public")
+	@MessageMapping("/message/{class_num}")	// /app/message
+	@SendTo("/chatroom/public/{class_num}")
 	private ChatMessageDto receivePublicMessage(@Payload ChatMessageDto chatMessageDto) {
 		System.out.println("public:"+chatMessageDto);
 		return chatMessageDto;

@@ -16,4 +16,5 @@ public class ChatMessageDto {
 	private String message;
 	private Timestamp date;
 	private String status;
+	private int class_num;
 }
