@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bit.fin.mapper.ReviewMapper">
+	<insert id="insertReview" parameterType="Review">
+		insert into classreview (classreview_num,class_num,classreview_rate,classreview_title,classreview_content,classreview_writer,
+		classreview_photo,classreview_date)
+		values (#{classreview_num},#{class_num},#{classreview_rate},#{classreview_title},#{classreview_content},#{classreview_writer},#{classreview_photo},now())
+	</insert>
+	
+	<select id= "getAllDatas" resultType="Review">
+		select * from classreview order by class_num desc
+	</select>
+	<select id="getData" parameterType="int" resultType="review">
+		select * from classreview where class_num=#{class_num}
+	</select>
+	
+	
+</mapper>
