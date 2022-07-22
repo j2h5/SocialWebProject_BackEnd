@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.bit.fin.dto.ChatMessageDto;
+import com.bit.fin.dto.ChatMessageDto2;
+import com.bit.fin.service.PublicChatService;
 
 @CrossOrigin
 @Controller
@@ -16,20 +18,27 @@ public class ChattingController {
 	
 	@Autowired
 	SimpMessagingTemplate simpMessagingTemplate;
+	
+	@Autowired
+	PublicChatService publicChatService;
 
 
 	@MessageMapping("/message/{class_num}")	// /app/message
 	@SendTo("/chatroom/public/{class_num}")
 	private ChatMessageDto receivePublicMessage(@Payload ChatMessageDto chatMessageDto) {
-		System.out.println("public:"+chatMessageDto);
+		System.out.println("public:"+chatMessageDto);	
+		
+		if(chatMessageDto.getMessage()!=null) {
+		publicChatService.insertMessage(chatMessageDto);
+		}
 		return chatMessageDto;
 	}
 	
 	@MessageMapping("/private-message")
-	public ChatMessageDto receivePrivateMessage(@Payload ChatMessageDto chatMessageDto) {
+	public ChatMessageDto2 receivePrivateMessage(@Payload ChatMessageDto2 chatMessageDto2) {
 		
-		simpMessagingTemplate.convertAndSendToUser(chatMessageDto.getReceiverName(), "/private", chatMessageDto);
-        System.out.println(chatMessageDto);
-		return chatMessageDto;
+		simpMessagingTemplate.convertAndSendToUser(chatMessageDto2.getReceiverName(), "/private", chatMessageDto2);
+        System.out.println(chatMessageDto2);
+		return chatMessageDto2;
 	}
 }
