@@ -30,7 +30,6 @@ public class UserDto {
     @Size(min = 1, max = 200)
     private String email;
 
-    @NotNull
     @Size(min = 1, max = 200)
     private String profile;
 

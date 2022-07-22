@@ -110,4 +110,12 @@ public class UserController {
         }
         return photoName;
     }
+
+    @PostMapping("/instprf")
+    public void insert(@RequestBody UserDto dto)
+    {
+        dto.setProfile(photoName);
+        userService.insertProfile(dto);
+        photoName=null;
+    }
 }

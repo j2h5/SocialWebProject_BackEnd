@@ -14,4 +14,5 @@ public interface UserMapper {
     public UserDto getUser(String u_id);
     public void insertUser(UserDto dto);
     public int usernameCheck(String username); //해당 아이디 존재 유무 체크
+    public void insertProfile(UserDto dto);
 }

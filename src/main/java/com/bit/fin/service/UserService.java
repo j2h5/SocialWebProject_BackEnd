@@ -77,4 +77,9 @@ public class UserService {
     public int usernameCheck(String username) {
         return userMapper.usernameCheck(username);
     }
+
+    public void insertProfile(UserDto dto) {
+        userMapper.insertProfile(dto);
+    }
+
 }
