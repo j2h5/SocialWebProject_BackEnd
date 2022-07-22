@@ -21,6 +21,10 @@ public class UserDto {
     @Size(min = 1, max = 200)
     private String username;
 
+    @NotNull
+    @Size(min = 1, max = 200)
+    private String realname;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotNull
     @Size(min = 1, max = 200)
@@ -40,6 +44,7 @@ public class UserDto {
 
         return UserDto.builder()
                 .username(user.getUsername())
+                .realname(user.getRealname())
                 .email(user.getEmail())
                 .profile(user.getProfile())
                 .authorityDtoSet(user.getAuthorities().stream()

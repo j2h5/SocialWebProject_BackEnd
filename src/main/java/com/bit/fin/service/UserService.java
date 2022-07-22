@@ -48,6 +48,7 @@ public class UserService {
         // 위의 권한정보를 포함한 user 정보를 생성해서
         User user = User.builder()
                 .username(userDto.getUsername())
+                .realname(userDto.getRealname())
                 .email(userDto.getEmail())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .profile(userDto.getProfile())
