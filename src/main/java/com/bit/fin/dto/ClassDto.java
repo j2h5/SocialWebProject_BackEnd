@@ -13,6 +13,7 @@ import lombok.Data;
 public class ClassDto {
    private int class_num;
    private String  tutor_id;
+   private String tutor_name;
    private String class_category;
    private String class_location;
    private String class_name;

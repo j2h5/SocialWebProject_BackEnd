@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bit.fin.mapper.ClassMapper">
    <insert id="insertClass" parameterType="class">
-      insert into class (tutor_id,class_category,class_location,class_name,
+      insert into class (tutor_id,tutor_name,class_category,class_location,class_name,
       class_photo1,class_photo2,class_photo3,class_photo4,class_photo5,
       class_target,class_price,class_hour,classoption_num,
       class_intro,class_curri,class_anoun,class_anounok,class_confirm,class_signday)      
-      values (#{tutor_id},#{class_category},#{class_location},#{class_name},
+      values (#{tutor_id},#{tutor_name},#{class_category},#{class_location},#{class_name},
       #{class_photo1},#{class_photo2},#{class_photo3},#{class_photo4},#{class_photo5},
       #{class_target},#{class_price},#{class_hour},#{classoption_num},
       #{class_intro},#{class_curri},#{class_anoun},#{class_anounok},#{class_confirm},now())
