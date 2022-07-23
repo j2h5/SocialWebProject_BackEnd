@@ -83,6 +83,10 @@ public class UserService {
         return userMapper.emailCheck(email);
     }
 
+    public UserDto getProfile(String username) {
+        return userMapper.getProfile(username);
+    }
+
     public void insertProfile(UserDto dto) {
         userMapper.insertProfile(dto);
     }

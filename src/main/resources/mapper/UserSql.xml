@@ -18,4 +18,8 @@
 <!--		</if>-->
 		where username=#{username}
 	</insert>
+
+	<select id="getProfile" parameterType="String" resultType="user">
+		select * from user where username=#{username}
+	</select>
 </mapper>

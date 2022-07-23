@@ -49,17 +49,23 @@ public class UserController {
         return ResponseEntity.ok(userService.signup(userDto));
     }
 
+    //아이디 중복확인
     @GetMapping("/usernamecheck")
     public int usernameCheck(@RequestParam String username)
     {
         return userService.usernameCheck(username);
     }
 
+    //이메일 중복확인
     @GetMapping("/emailcheck")
     public int emailcheck(@RequestParam String email)
     {
         return userService.emailCheck(email);
     }
+
+    //해당아이디 데이터 불러오기
+    @GetMapping("/getprofile")
+    public UserDto getProfile(@RequestParam String username) { return userService.getProfile(username);}
 
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('USER','ADMIN')")

@@ -15,5 +15,6 @@ public interface UserMapper {
     public void insertUser(UserDto dto);
     public int usernameCheck(String username); //해당 아이디 존재 유무 체크
     public int emailCheck(String email); //해당 이메일 존재 유무 체크
+    public UserDto getProfile(String username); // 해당 아이디의 프로필 사진, realname 가져오기
     public void insertProfile(UserDto dto);
 }
