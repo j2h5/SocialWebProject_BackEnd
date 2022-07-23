@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bit.fin.mapper.PayMapper">
+   <insert id="insertPay" parameterType="pay">
+      insert into pay (pay_order_num,pay_user_id,pay_user_name,pay_class_num,pay_class_name,
+      pay_classoption_num,pay_classoption_day,pay_classoption_starttime,pay_classoption_endtime,
+      pay_classoption_percnt,pay_price,pay_day)      
+      values (#{pay_order_num},#{pay_user_id},#{pay_user_name},#{pay_class_num},#{pay_class_name},
+      #{pay_classoption_num},#{pay_classoption_day},#{pay_classoption_starttime},#{pay_classoption_endtime},
+      #{pay_classoption_percnt},#{pay_price},now())
+   </insert>
+    
+   
+   <select id="getData" parameterType="int" resultType="pay">
+      select * from pay where pay_num=#{pay_num}
+   </select>
+
+   <select id="getAllDatas" resultType="pay">
+      select * from pay order by pay_num
+   </select>
+
+   
+</mapper>
