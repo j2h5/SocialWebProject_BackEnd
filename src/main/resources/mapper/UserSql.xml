@@ -8,6 +8,9 @@
 	<select id="usernameCheck" parameterType="String" resultType="int">
 		select count(*) from user where username=#{username}
 	</select>
+	<select id="emailCheck" parameterType="String" resultType="int">
+		select count(*) from user where email=#{email}
+	</select>
 	<insert id="insertProfile" parameterType="user">
 		update user set profile = #{profile}
 <!--		<if test="profile!=null">-->

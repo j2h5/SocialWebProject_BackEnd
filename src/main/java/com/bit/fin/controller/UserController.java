@@ -55,6 +55,12 @@ public class UserController {
         return userService.usernameCheck(username);
     }
 
+    @GetMapping("/emailcheck")
+    public int emailcheck(@RequestParam String email)
+    {
+        return userService.emailCheck(email);
+    }
+
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     // getMyUserInfo 메서드는 @PreAuthorize를 통해서 User과 admin 두가지 권한을 모두 호출할 수 있는 api

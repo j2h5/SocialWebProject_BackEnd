@@ -17,16 +17,13 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class UserDto {
 
-    @NotNull
     @Size(min = 1, max = 200)
     private String username;
 
-    @NotNull
     @Size(min = 1, max = 200)
     private String realname;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @NotNull
     @Size(min = 1, max = 200)
     private String password;
 

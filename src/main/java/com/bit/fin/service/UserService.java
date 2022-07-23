@@ -79,6 +79,10 @@ public class UserService {
         return userMapper.usernameCheck(username);
     }
 
+    public int emailCheck(String email) {
+        return userMapper.emailCheck(email);
+    }
+
     public void insertProfile(UserDto dto) {
         userMapper.insertProfile(dto);
     }
