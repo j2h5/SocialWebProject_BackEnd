@@ -30,7 +30,7 @@ public class PayController {
       PayService.insertPay(dto);
       
        //해당하는 classnum맞춰서 classoption_pesentperson 증가
-      //PayService.updateReadCount(num);
+      //PayService.updateReadCount(num);~
    }
 
    @GetMapping("/detail")
