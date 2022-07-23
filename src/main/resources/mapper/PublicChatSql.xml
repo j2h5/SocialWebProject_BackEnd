@@ -6,7 +6,7 @@
 		(#{senderName},#{class_name},#{status},#{message},#{class_num},now())
 	</insert>
 	
-	<select id="publicChatList" parameterType="int" resultType="list">
+	<select id="publicChatList" parameterType="int" resultType="publicChat">
 		select * from publicchat where class_num=#{class_num} order by class_num desc
 	</select>
 </mapper>
