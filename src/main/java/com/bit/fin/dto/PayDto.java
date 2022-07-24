@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Alias("pay")
@@ -23,6 +25,7 @@ import lombok.Data;
       private int pay_classoption_endtime;
       private int pay_classoption_percnt;
       private int pay_price;
+  	  @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Seoul")
       private Timestamp pay_day;
    
    }

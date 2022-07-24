@@ -21,9 +21,9 @@ public class PayService implements PayServiceInter {
    }
 
    @Override
-   public PayDto getData(int pay_num) {
+   public List<PayDto> getData(String pay_user_id) {
       // TODO Auto-generated method stub
-      return PayMapper.getData(pay_num);
+      return PayMapper.getData(pay_user_id);
    }
 
    @Override

@@ -11,8 +11,8 @@
    </insert>
     
    
-   <select id="getData" parameterType="int" resultType="pay">
-      select * from pay where pay_num=#{pay_num}
+   <select id="getData" parameterType="String" resultType="pay">
+      select * from pay where pay_user_id=#{pay_user_id}
    </select>
 
    <select id="getAllDatas" resultType="pay">
