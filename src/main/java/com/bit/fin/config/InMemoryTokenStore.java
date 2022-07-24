@@ -21,5 +21,6 @@ public class InMemoryTokenStore {
     //로그아웃 시 username에 해당하는 token 삭제
     public void removeToken(String username){
         this.tokenStore.remove(username);
+        
     }
 }
