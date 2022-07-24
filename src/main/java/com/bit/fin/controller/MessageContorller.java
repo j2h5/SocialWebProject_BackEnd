@@ -23,7 +23,6 @@ public class MessageContorller {
 
 	@GetMapping("/get")
 	public List<ChatMessageDto> messagelist(@RequestParam int class_num){
-		System.out.println(publicChatService.publicChatList(class_num));
 		return publicChatService.publicChatList(class_num);
 	}
 

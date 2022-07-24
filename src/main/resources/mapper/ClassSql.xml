@@ -36,6 +36,10 @@
    <select id="getAllDatas" resultType="class">
    	select * from class order by class_num desc
    </select>
+   
+   <update id="updateperson" parameterType="map">
+   	update classoption set classoption_presentperson=#{pay_classoption_percnt} where classoption_num=#{classoption_num}
+   </update>
 
    
 </mapper>

@@ -1,6 +1,8 @@
 package com.bit.fin.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,5 +52,17 @@ public class ClassService implements ClassServiceInter {
    	public List<ClassDto> getAllDatas(){
 	   return classMapper.getAllDatas();
    }
+   
+   @Override
+	public void updateperson(int classoption_num, int pay_classoption_percnt) {
+		// TODO Auto-generated method stub
+	   
+		Map<String, Integer> map=new HashMap<>();
+		map.put("classoption_num", classoption_num);
+		map.put("pay_classoption_percnt", pay_classoption_percnt);
+		
+		classMapper.updateperson(map);
+		
+	}
 
 }

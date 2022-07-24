@@ -14,4 +14,5 @@ public interface ClassServiceInter {
    public ClassDto getData(int class_num);
    public List<ClassoptionDto> getOptionsData(int class_num);
    public List<ClassDto> getAllDatas();
+   public void updateperson(int classoption_num,int pay_classoption_percnt);
 }

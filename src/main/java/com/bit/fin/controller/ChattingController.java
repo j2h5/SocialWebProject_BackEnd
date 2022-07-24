@@ -26,7 +26,6 @@ public class ChattingController {
 	@MessageMapping("/message/{class_num}")	// /app/message
 	@SendTo("/chatroom/public/{class_num}")
 	private ChatMessageDto receivePublicMessage(@Payload ChatMessageDto chatMessageDto) {
-		System.out.println("public:"+chatMessageDto);	
 		
 		if(chatMessageDto.getMessage()!=null) {
 		publicChatService.insertMessage(chatMessageDto);
@@ -38,7 +37,6 @@ public class ChattingController {
 	public ChatMessageDto2 receivePrivateMessage(@Payload ChatMessageDto2 chatMessageDto2) {
 		
 		simpMessagingTemplate.convertAndSendToUser(chatMessageDto2.getReceiverName(), "/private", chatMessageDto2);
-        System.out.println(chatMessageDto2);
 		return chatMessageDto2;
 	}
 }

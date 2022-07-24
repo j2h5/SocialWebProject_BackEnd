@@ -107,4 +107,11 @@ public class ClassController {
 	   return classService.getAllDatas();
    }
    
+   @PostMapping("/update")
+   public void update(@RequestParam int classoption_num
+		   ,@RequestParam int pay_classoption_percnt) {
+	   classService.updateperson(classoption_num, pay_classoption_percnt);
+	   System.out.println("업데이트");
+   }
+   
 }

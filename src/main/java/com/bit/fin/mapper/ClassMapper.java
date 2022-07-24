@@ -1,6 +1,7 @@
 package com.bit.fin.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,6 +18,6 @@ public interface ClassMapper {
    public ClassDto getData(int class_num);
    public List<ClassoptionDto> getOptionsData(int class_num);
    public List<ClassDto> getAllDatas();
-
+   public void updateperson(Map<String, Integer> map);
    
 }
