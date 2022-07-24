@@ -37,11 +37,11 @@ public class PayController {
       //PayService.updateReadCount(num);~
    }
 
-   @GetMapping("/detail")
-   public PayDto detail(@RequestParam int num)
+   @GetMapping	("/detail")
+   public List<PayDto> detail(@RequestParam String pay_user_id)
    {
       //dto 반환
-      return PayService.getData(num);
+      return PayService.getData(pay_user_id);
    }
 
    @GetMapping("/list")
