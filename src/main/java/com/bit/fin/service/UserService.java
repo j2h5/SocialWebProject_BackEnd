@@ -1,10 +1,8 @@
 package com.bit.fin.service;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
+import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.entity.Authority;
 import com.bit.fin.entity.User;
@@ -89,6 +87,18 @@ public class UserService {
 
     public void insertProfile(UserDto dto) {
         userMapper.insertProfile(dto);
+    }
+
+    public int loginCheck(String username, String password){
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
+        map.put("password", password);
+
+        return userMapper.loginCheck(map);
+    };
+
+    public UserDto findByUsername(String username){
+        return userMapper.findByUsername(username);
     }
 
 }

@@ -3,16 +3,23 @@ package com.bit.fin.controller;
 import com.bit.fin.config.InMemoryTokenStore;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.mapper.UserMapper;
+import com.bit.fin.service.CustomUserDetailsService;
 import com.bit.fin.service.UserService;
 import com.bit.fin.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
@@ -130,5 +137,27 @@ public class UserController {
         dto.setProfile(photoName);
         userService.insertProfile(dto);
         photoName=null;
+    }
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    //로그인 시 아이디, 비밀번호 일치 여부 확인
+    @PostMapping("/loginchk")
+    public int loginCheck(@RequestBody UserDto dto ) throws Exception
+    {
+        UserDto user = userService.findByUsername(dto.getUsername());
+        System.out.println("user = " + user);
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        if(encoder.matches(dto.getPassword(), user.getPassword())){
+            System.out.println("비밀번호 일치");
+            return 1;
+    }else
+        System.out.println("비밀번호 불일치");
+        return 0; //모두 맞으면 1, 틀리면 0 반환
     }
 }

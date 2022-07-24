@@ -5,6 +5,8 @@ import com.bit.fin.dto.LoginDto;
 import com.bit.fin.dto.TokenDto;
 import com.bit.fin.jwt.JwtFilter;
 import com.bit.fin.jwt.TokenProvider;
+import com.bit.fin.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,10 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api")
 public class AuthController {
+
+    @Autowired
+    private UserService userService;
+
     //의존성 주입
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
@@ -56,7 +62,7 @@ public class AuthController {
         httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
         //username과 jwt 토큰을 저장
-        inMemoryTokenStore.setTokenStore(loginDto.getUsername(), jwt);
+        //inMemoryTokenStore.setTokenStore(loginDto.getUsername(), jwt);
 
         //jwt 토큰을 ResponseBody에도  넣어서 리턴
         return new ResponseEntity<>(new TokenDto(jwt), httpHeaders, HttpStatus.OK);

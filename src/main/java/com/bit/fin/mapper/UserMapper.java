@@ -2,6 +2,7 @@ package com.bit.fin.mapper;
 
 import com.bit.fin.dto.UserDto;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -16,5 +17,7 @@ public interface UserMapper {
     public int usernameCheck(String username); //해당 아이디 존재 유무 체크
     public int emailCheck(String email); //해당 이메일 존재 유무 체크
     public UserDto getProfile(String username); // 해당 아이디의 프로필 사진, realname 가져오기
-    public void insertProfile(UserDto dto);
+    public void insertProfile(UserDto dto); // 회원가입 시 프로필 사진 따로 저장
+    public int loginCheck(Map<String, String> map); // 로그인 시 아디,비번 일치여부 확인
+    public UserDto findByUsername(String username); //
 }
