@@ -2,6 +2,8 @@ package com.bit.fin.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +17,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@DynamicInsert
 public class User {
 
     @Id // Primary Key
@@ -34,11 +37,17 @@ public class User {
     @Column(name = "password", length = 200)
     private String password;
 
-    @Column(name = "profile", length = 200)
+    @Column(name = "profile",length = 200)
+    @ColumnDefault(value = "profile.jpg")
     private String profile;
 
     @Column(name = "activated")
     private boolean activated; //활성화 여부
+
+    @PrePersist
+    public void prePersist() {
+        this.profile = this.profile == null ? "profile.jpg" : this.profile;
+    }
 
     // User객체와 권한 객체의 다대다 관계를 중간에 연결 조인테이블로 정의
     @ManyToMany

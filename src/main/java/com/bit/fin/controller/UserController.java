@@ -150,7 +150,6 @@ public class UserController {
     public int loginCheck(@RequestBody UserDto dto ) throws Exception
     {
         UserDto user = userService.findByUsername(dto.getUsername());
-        System.out.println("user = " + user);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
         if(encoder.matches(dto.getPassword(), user.getPassword())){
@@ -160,5 +159,5 @@ public class UserController {
         System.out.println("비밀번호 불일치");
         return 0; //모두 맞으면 1, 틀리면 0 반환
     }
-    
+
 }
