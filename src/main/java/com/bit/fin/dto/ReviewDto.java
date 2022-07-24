@@ -1,8 +1,12 @@
 package com.bit.fin.dto;
 
-import java.security.Timestamp;
+
+
+import java.sql.Timestamp;
 
 import org.apache.ibatis.type.Alias;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
@@ -19,6 +23,7 @@ import lombok.Data;
 		private String classreview_content;
 		private String classreview_writer;
 		private String classreview_photo;
+		@JsonFormat(pattern="yyyy-MM-dd")
 		private Timestamp classreview_date;
 	
 

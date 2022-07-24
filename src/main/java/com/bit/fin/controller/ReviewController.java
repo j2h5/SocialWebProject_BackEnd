@@ -80,7 +80,7 @@ package com.bit.fin.controller;
 		   //id에 해당하는 이름 가져오기
 //		   String name=UserService.getName(dto.getId());
 //		   dto.setName(name);
-		   ReviewService.insertReview(dto);
+		  
 		   photoName=null; //이전에 insert했던게 지워지기때문에 넣는당
 	   }
 
@@ -94,9 +94,10 @@ package com.bit.fin.controller;
 //	   }
 
 	   @GetMapping("/alllist")
-	   public List<ReviewDto> getAllList()
+	   public List<ReviewDto> getAllList(@RequestParam int class_num)
 	   {
-	      return ReviewService.getAllDatas();
+		   System.out.println(1);
+	      return ReviewService.getAllDatas(class_num);
 	   }
 
 //	   @GetMapping("/pagelist")

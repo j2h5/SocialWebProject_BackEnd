@@ -8,8 +8,8 @@
 		values (#{classreview_num},#{class_num},#{classreview_rate},#{classreview_title},#{classreview_content},#{classreview_writer},#{classreview_photo},now())
 	</insert>
 	
-	<select id= "getAllDatas" resultType="Review">
-		select * from classreview order by class_num desc
+	<select id= "getAllDatas" parameterType="int" resultType="Review">
+		select * from classreview where class_num=#{class_num} order by class_num desc
 	</select>
 	<select id="getData" parameterType="int" resultType="review">
 		select * from classreview where class_num=#{class_num}
