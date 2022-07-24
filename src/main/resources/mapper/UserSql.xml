@@ -11,13 +11,9 @@
 	<select id="emailCheck" parameterType="String" resultType="int">
 		select count(*) from user where email=#{email}
 	</select>
-	<insert id="insertProfile" parameterType="user">
-		update user set profile = #{profile}
-<!--		<if test="profile!=null">-->
-<!--			profile = #{profile} -->
-<!--		</if>-->
-		where username=#{username}
-	</insert>
+	<update id="insertProfile" parameterType="user">
+		update user set profile = #{profile} where username=#{username}
+	</update>
 
 	<select id="getProfile" parameterType="String" resultType="user">
 		select * from user where username=#{username}
