@@ -1,5 +1,6 @@
 package com.bit.fin.controller;
 
+import com.bit.fin.config.InMemoryTokenStore;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.mapper.UserMapper;
 import com.bit.fin.service.UserService;
@@ -23,6 +24,9 @@ public class UserController {
 
     @Autowired
     private final UserService userService;
+
+    @Autowired
+    private InMemoryTokenStore inMemoryTokenStore;
 
     @Autowired
     UserMapper mapper;
@@ -119,8 +123,9 @@ public class UserController {
         return photoName;
     }
 
+    //회원 가입 시 프로필 사진 넣기
     @PostMapping("/instprf")
-    public void insert(@RequestBody UserDto dto)
+    public void insert(@RequestBody UserDto dto, String jwt)
     {
         dto.setProfile(photoName);
         userService.insertProfile(dto);

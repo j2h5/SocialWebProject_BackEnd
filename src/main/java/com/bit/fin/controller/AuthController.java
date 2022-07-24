@@ -1,5 +1,6 @@
 package com.bit.fin.controller;
 
+import com.bit.fin.config.InMemoryTokenStore;
 import com.bit.fin.dto.LoginDto;
 import com.bit.fin.dto.TokenDto;
 import com.bit.fin.jwt.JwtFilter;
@@ -21,12 +22,16 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api")
 public class AuthController {
+    //의존성 주입
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
+    private final InMemoryTokenStore inMemoryTokenStore;
 
-    public AuthController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder) {
+    public AuthController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder
+    , InMemoryTokenStore inMemoryTokenStore) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
+        this.inMemoryTokenStore = inMemoryTokenStore;
     }
 
     @PostMapping("/authenticate")
@@ -49,6 +54,9 @@ public class AuthController {
         HttpHeaders httpHeaders = new HttpHeaders();
         //jwt 토큰을 Header에 넣어주기
         httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
+
+        //username과 jwt 토큰을 저장
+        inMemoryTokenStore.setTokenStore(loginDto.getUsername(), jwt);
 
         //jwt 토큰을 ResponseBody에도  넣어서 리턴
         return new ResponseEntity<>(new TokenDto(jwt), httpHeaders, HttpStatus.OK);
