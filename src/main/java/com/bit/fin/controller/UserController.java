@@ -160,4 +160,5 @@ public class UserController {
         System.out.println("비밀번호 불일치");
         return 0; //모두 맞으면 1, 틀리면 0 반환
     }
+    
 }
