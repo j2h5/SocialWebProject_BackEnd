@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.ClassoptionDto;
+import com.bit.fin.dto.PayDto;
 import com.bit.fin.mapper.ClassMapper;
 
 
@@ -54,15 +55,10 @@ public class ClassService implements ClassServiceInter {
    }
    
    @Override
-	public void updateperson(int classoption_num, int pay_classoption_percnt) {
+	public void updateperson(PayDto dto) {
 		// TODO Auto-generated method stub
-	   
-		Map<String, Integer> map=new HashMap<>();
-		map.put("classoption_num", classoption_num);
-		map.put("pay_classoption_percnt", pay_classoption_percnt);
 		
-		classMapper.updateperson(map);
-		
+		classMapper.updateperson(dto);
 	}
 
 }

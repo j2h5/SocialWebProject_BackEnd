@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.ClassoptionDto;
+import com.bit.fin.dto.PayDto;
 
 
 public interface ClassServiceInter {
@@ -14,5 +15,5 @@ public interface ClassServiceInter {
    public ClassDto getData(int class_num);
    public List<ClassoptionDto> getOptionsData(int class_num);
    public List<ClassDto> getAllDatas();
-   public void updateperson(int classoption_num,int pay_classoption_percnt);
+   public void updateperson(PayDto dto);
 }

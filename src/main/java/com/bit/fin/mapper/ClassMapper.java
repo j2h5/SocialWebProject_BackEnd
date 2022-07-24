@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.ClassoptionDto;
+import com.bit.fin.dto.PayDto;
 
 
 @Mapper
@@ -18,6 +19,6 @@ public interface ClassMapper {
    public ClassDto getData(int class_num);
    public List<ClassoptionDto> getOptionsData(int class_num);
    public List<ClassDto> getAllDatas();
-   public void updateperson(Map<String, Integer> map);
+   public void updateperson(PayDto dto);
    
 }

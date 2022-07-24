@@ -37,8 +37,8 @@
    	select * from class order by class_num desc
    </select>
    
-   <update id="updateperson" parameterType="map">
-   	update classoption set classoption_presentperson=#{pay_classoption_percnt} where classoption_num=#{classoption_num}
+   <update id="updateperson" parameterType="pay">
+   	update classoption set classoption_presentperson=#{pay_classoption_percnt} where classoption_num=#{pay_classoption_num}
    </update>
 
    

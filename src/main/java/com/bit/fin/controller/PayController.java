@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.bit.fin.dto.PayDto;
+import com.bit.fin.service.ClassService;
 import com.bit.fin.service.PayService;
 
 
@@ -21,6 +22,8 @@ public class PayController {
 
    @Autowired
    private PayService PayService;
+   @Autowired
+   private ClassService classService;
    
 
    @PostMapping("/insert")
@@ -28,6 +31,7 @@ public class PayController {
    {
       System.out.println(dto);
       PayService.insertPay(dto);
+      classService.updateperson(dto);
       
        //해당하는 classnum맞춰서 classoption_pesentperson 증가
       //PayService.updateReadCount(num);~
