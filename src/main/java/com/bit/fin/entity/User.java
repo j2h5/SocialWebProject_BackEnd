@@ -38,7 +38,7 @@ public class User {
     private String password;
 
     @Column(name = "profile",length = 200)
-    @ColumnDefault(value = "profile.jpg")
+    @ColumnDefault("N")
     private String profile;
 
     @Column(name = "activated")
