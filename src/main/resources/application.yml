@@ -7,7 +7,6 @@ spring:
   h2:
     console:
       enabled: true
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -47,3 +46,17 @@ mybatis:
   type-aliases-package: com.bit.fin.mapper,com.bit.fin.dto
   mapper-locations:
   - /mapper/**/*.xml
+
+mail:
+  host: smtp.naver.com
+  port: 465
+  properties:
+    mail.smtp.auth: true
+    mail.smtp.starttls.required: true
+    mail.smtp.starttls.enable: true
+    mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+    mail.smtp.socketFactory.fallback: false
+    mail.smtp.port: 465
+    mail.smtp.socketFactory.port: 465
+    AdminMail.id :  todayhangang@naver.com
+    AdminMail.password : todayhangang1
