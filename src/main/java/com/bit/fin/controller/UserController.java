@@ -1,10 +1,12 @@
 package com.bit.fin.controller;
 
 import com.bit.fin.config.InMemoryTokenStore;
+import com.bit.fin.dto.MailDto;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.mapper.UserMapper;
 import com.bit.fin.repository.UserRepository;
 import com.bit.fin.service.CustomUserDetailsService;
+import com.bit.fin.service.MailService;
 import com.bit.fin.service.UserService;
 import com.bit.fin.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +34,8 @@ import java.io.IOException;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private MailService mailService;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -171,6 +175,13 @@ public class UserController {
         //암호화 필요
         dto.setPassword(passwordEncoder.encode(dto.getPassword()));
         userService.changePassword(dto);
+    }
+
+    //메일 보내기
+    @PostMapping("/sendEmail")
+    public void sendEmail(@RequestBody UserDto dto){
+        MailDto maildto = mailService.createMailAndChangePassword(dto.getEmail());
+        mailService.mailSend(maildto);
     }
 
 }

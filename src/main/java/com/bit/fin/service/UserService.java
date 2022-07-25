@@ -103,4 +103,16 @@ public class UserService {
 
     public void changePassword(UserDto dto) {userMapper.changePassword(dto);}
 
+    public UserDto findByEmail(String email) {
+        return userMapper.findByEmail(email);
+    }
+
+    //임시비밀번호로 변경
+    public void imsiPassword(String username, String password){
+        Map<String, String> map = new HashMap<>();
+        map.put("username", username);
+        map.put("password", password);
+        userMapper.imsiPassword(map);
+    };
+
 }

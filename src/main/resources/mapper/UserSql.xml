@@ -31,4 +31,12 @@
 		update user set password = #{password} where username=#{username}
 	</update>
 
+	<select id="findByEmail" parameterType="String" resultType="user">
+		select * from user where email=#{email}
+	</select>
+
+	<update id="imsiPassword" parameterType="Map">
+		update user set password = #{password} where username=#{username}
+	</update>
+
 </mapper>
