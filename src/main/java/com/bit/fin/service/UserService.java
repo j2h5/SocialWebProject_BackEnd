@@ -101,4 +101,6 @@ public class UserService {
         return userMapper.findByUsername(username);
     }
 
+    public void changePassword(UserDto dto) {userMapper.changePassword(dto);}
+
 }

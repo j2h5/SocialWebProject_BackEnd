@@ -20,4 +20,5 @@ public interface UserMapper {
     public void insertProfile(UserDto dto); // 회원가입 시 프로필 사진 따로 저장
     public int loginCheck(Map<String, String> map); // 로그인 시 아디,비번 일치여부 확인
     public UserDto findByUsername(String username); //
+    public void changePassword(UserDto dto); // 비밀번호 변경
 }

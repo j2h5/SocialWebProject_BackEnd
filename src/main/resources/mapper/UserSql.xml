@@ -26,4 +26,9 @@
 	<select id="findByUsername" parameterType="String" resultType="user">
 		select * from user where username=#{username}
 	</select>
+
+	<update id="changePassword" parameterType="user">
+		update user set password = #{password} where username=#{username}
+	</update>
+
 </mapper>

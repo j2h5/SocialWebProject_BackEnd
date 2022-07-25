@@ -3,6 +3,7 @@ package com.bit.fin.controller;
 import com.bit.fin.config.InMemoryTokenStore;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.mapper.UserMapper;
+import com.bit.fin.repository.UserRepository;
 import com.bit.fin.service.CustomUserDetailsService;
 import com.bit.fin.service.UserService;
 import com.bit.fin.util.FileUtil;
@@ -28,6 +29,11 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private final UserService userService;
@@ -153,11 +159,18 @@ public class UserController {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
         if(encoder.matches(dto.getPassword(), user.getPassword())){
-            System.out.println("비밀번호 일치");
             return 1;
     }else
-        System.out.println("비밀번호 불일치");
         return 0; //모두 맞으면 1, 틀리면 0 반환
+    }
+
+    //비밀번호 변경
+    @PostMapping("/passchange")
+    public void passChange(@RequestBody UserDto dto ){
+
+        //암호화 필요
+        dto.setPassword(passwordEncoder.encode(dto.getPassword()));
+        userService.changePassword(dto);
     }
 
 }
