@@ -11,8 +11,11 @@ import com.bit.fin.dto.ReviewDto;
 	public interface ReviewMapper {
 		public void insertReview(ReviewDto dto);
 		public int getTotalCount();
+	
 		public List<ReviewDto> getAllDatas(int class_num);
-
+		public int deleteReview(int class_num);
+		public Double getRatingAverage(int class_num);
+		
 		
 	}
 

@@ -3,9 +3,9 @@
 
 <mapper namespace="com.bit.fin.mapper.ReviewMapper">
 	<insert id="insertReview" parameterType="Review">
-		insert into classreview (classreview_num,class_num,classreview_rate,classreview_title,classreview_content,classreview_writer,
+		insert into classreview (classreview_num,class_num,classreview_rate,classreview_content,classreview_writer,
 		classreview_photo,classreview_date)
-		values (#{classreview_num},#{class_num},#{classreview_rate},#{classreview_title},#{classreview_content},#{classreview_writer},#{classreview_photo},now())
+		values (#{classreview_num},#{class_num},#{classreview_rate},#{classreview_content},#{classreview_writer},#{classreview_photo},now())
 	</insert>
 	
 	<select id= "getAllDatas" parameterType="int" resultType="Review">
@@ -14,6 +14,20 @@
 	<select id="getData" parameterType="int" resultType="review">
 		select * from classreview where class_num=#{class_num}
 	</select>
+	<select id="getRatingAverage" resultType="double">
+  	
+  		select avg(classreview_rate)
+  		from classreview
+  		where class_num = #{class_num}
+  	
+  	</select>
+
+	<update id="updateRating">
 	
+		update classreview
+		set ratingAvg = #{ratingAvg}
+		where class_num = #{class_num}
+	
+	</update>
 	
 </mapper>

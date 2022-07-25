@@ -21,6 +21,15 @@ public class ReviewService implements ReviewServiceInter {
       // TODO Auto-generated method stub
       ReviewMapper.insertReview(dto);
    }
+   @Override
+   public int deleteReview(ReviewDto dto) {
+	   int result = ReviewMapper.deleteReview(dto.getClass_num());
+	   
+	   return result;
+   }
+   public void setRating(int class_num) {
+	   Double ratingAvg = ReviewMapper.getRatingAverage(class_num);
+   }
 
    @Override
    public int getTotalCount() {
