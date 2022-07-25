@@ -18,6 +18,7 @@ import lombok.Data;
       private String pay_user_id;
       private String pay_user_name;
       private int pay_class_num;
+      private String pay_method;
       private String pay_class_name;
       private int pay_classoption_num;
       private String pay_classoption_day;
