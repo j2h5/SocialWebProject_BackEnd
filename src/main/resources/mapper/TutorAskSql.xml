@@ -14,6 +14,14 @@
 		    where state="대기"
     </select>
     
+	<select id="getdetaillist" parameterType="String" resultType="String">
+		SELECT state
+		FROM Tutorask
+		      left outer JOIN user
+		    ON Tutorask.username = user.username
+		    where Tutorask.username=#{username};
+    </select>
+    
     <update id="update" parameterType="tutorask">
    		update Tutorask set state=#{state} where username=#{username}
     </update>

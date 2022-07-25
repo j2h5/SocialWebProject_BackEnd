@@ -31,4 +31,10 @@ public class TutoraskService implements TutoraskServiceInter {
 		// TODO Auto-generated method stub
 		tutoraskMapper.update(dto);
 	}
+	
+	@Override
+	public List<String> getdetaillist(String username) {
+		// TODO Auto-generated method stub
+		return tutoraskMapper.getdetaillist(username);
+	}
 }

@@ -10,5 +10,6 @@ import com.bit.fin.dto.TutoraskDto;
 public interface TutoraskMapper {
 	public void tutorAsk(TutoraskDto dto);
 	public List<TutoraskDto> getlist();
+	public List<String> getdetaillist(String username);
 	public void update(TutoraskDto dto);
 }
