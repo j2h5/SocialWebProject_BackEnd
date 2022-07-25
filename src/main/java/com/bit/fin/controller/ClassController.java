@@ -76,7 +76,6 @@ public class ClassController {
 
    @PostMapping("/insert")
    public void insert(@RequestBody ClassDto dto) {
-
 	   System.out.println(dto);
 	   classService.insertClass(dto);
    }
@@ -106,5 +105,7 @@ public class ClassController {
    public List<ClassDto> getAllList(){
 	   return classService.getAllDatas();
    }
+   
+   
       
 }

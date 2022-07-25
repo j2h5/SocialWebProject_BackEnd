@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bit.fin.mapper.LikeMapper">
+	
+   <select id="getTF" parameterType="like" resultType="int">
+      select count(*) from classlike where like_user_name=#{like_user_name} and like_class_num=#{like_class_num}
+   </select>
+   
+   <insert id="pluslike" parameterType="like">
+      insert into classlike (like_user_name,like_class_num)      
+      values (#{like_user_name},#{like_class_num})
+   </insert> 
+   
+   <delete id="minuslike" parameterType="like" >
+   	delete from classlike where like_user_name=#{like_user_name} and like_class_num=#{like_class_num}
+   </delete>
+   
+</mapper>

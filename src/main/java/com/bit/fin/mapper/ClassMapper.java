@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.ClassoptionDto;
+import com.bit.fin.dto.LikeDto;
 import com.bit.fin.dto.PayDto;
 
 
@@ -20,5 +21,8 @@ public interface ClassMapper {
    public List<ClassoptionDto> getOptionsData(int class_num);
    public List<ClassDto> getAllDatas();
    public void updateperson(PayDto dto);
-   
+   public void updatelike(PayDto dto);
+
+	public void insertPay(LikeDto dto);
+	public List<LikeDto> getLikeDatas();
 }
