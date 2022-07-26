@@ -51,6 +51,17 @@
    <select id="myclasslist" parameterType="string" resultType="class">
       select * from class where tutor_id=#{tutor_id}
    </select>
+   
+   <select id="myclasstuty" parameterType="string" resultType="class">
+      	SELECT *
+		FROM class
+		inner JOIN pay
+		ON class.class_num = pay.pay_class_num
+		where tutor_id=#{tutor_id}
+		order by pay_day desc
+   </select>
+   
+   
 
    
 </mapper>

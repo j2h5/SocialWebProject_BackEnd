@@ -115,6 +115,10 @@ public class ClassController {
 	   return classService.myclasslist(username);
    }
    
+   @GetMapping("/mytuty")
+   public List<ClassDto> myclasstuty(@RequestParam String username){
+	   return classService.myclasstuty(username);
+   }
    
       
 }

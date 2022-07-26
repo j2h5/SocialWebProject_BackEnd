@@ -34,4 +34,15 @@ public class ClassDto {
    private String like_user_name;
    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/seoul")
    private Timestamp class_signday;
+   
+   //내클래스 튜티들
+   private String pay_user_id;
+   private String pay_user_name;
+   @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/seoul")
+   private Timestamp pay_day;
+   private String pay_classoption_day;
+   private String pay_classoption_starttime;
+   private String pay_classoption_endtime;
+   private String pay_classoption_percnt;
+   
 }

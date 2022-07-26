@@ -73,4 +73,9 @@ public class ClassService implements ClassServiceInter {
 		return classMapper.myclasslist(username);
 	}
 
+   @Override
+	public List<ClassDto> myclasstuty(String username) {
+		// TODO Auto-generated method stub
+		return classMapper.myclasstuty(username);
+	}
 }

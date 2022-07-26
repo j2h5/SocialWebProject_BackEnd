@@ -27,4 +27,5 @@ public interface ClassMapper {
 	public void insertPay(LikeDto dto);
 	public List<LikeDto> getLikeDatas();
 	public List<ClassDto> myclasslist(String username);//
+	public List<ClassDto> myclasstuty(String username);
 }
