@@ -2,6 +2,7 @@ package com.bit.fin.service;
 
 import java.util.*;
 
+import com.bit.fin.dto.AuthorityDto;
 import com.bit.fin.dto.ClassDto;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.entity.Authority;
@@ -123,4 +124,5 @@ public class UserService {
     public void changeNick(UserDto dto) {
         userMapper.changeNick(dto);
     }
+    public int getAuth(String user_id) { return userMapper.getAuth(user_id);    }
 }

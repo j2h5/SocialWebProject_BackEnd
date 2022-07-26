@@ -50,4 +50,8 @@
 		update user set realname = #{realname} where username=#{username}
 	</update>
 
+	<select id="getAuth" parameterType="String" resultType="int">
+		select count(*) from user_authority where user_id=#{user_id}
+	</select>
+
 </mapper>
