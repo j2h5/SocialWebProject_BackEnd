@@ -110,6 +110,11 @@ public class ClassController {
 	   return classService.getAllDatas2(username);
    }
    
+   @GetMapping("/mylist")
+   public List<ClassDto> myclasslist(@RequestParam String username){
+	   return classService.myclasslist(username);
+   }
+   
    
       
 }

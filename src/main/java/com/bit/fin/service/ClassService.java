@@ -66,5 +66,11 @@ public class ClassService implements ClassServiceInter {
 		
 		classMapper.updateperson(dto);
 	}
+   
+   @Override
+	public List<ClassDto> myclasslist(String username) {
+		// TODO Auto-generated method stub
+		return classMapper.myclasslist(username);
+	}
 
 }

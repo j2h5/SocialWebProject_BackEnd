@@ -17,4 +17,5 @@ public interface ClassServiceInter {
    public List<ClassDto> getAllDatas();
    public List<ClassDto> getAllDatas2(String username);
    public void updateperson(PayDto dto);
+   public List<ClassDto> myclasslist(String username);
 }

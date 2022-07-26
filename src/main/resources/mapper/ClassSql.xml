@@ -47,6 +47,10 @@
    <update id="updateperson" parameterType="pay">
    	update classoption set classoption_presentperson=#{pay_classoption_percnt} where classoption_num=#{pay_classoption_num}
    </update>
+   
+   <select id="myclasslist" parameterType="string" resultType="class">
+      select * from class where tutor_id=#{tutor_id}
+   </select>
 
    
 </mapper>
