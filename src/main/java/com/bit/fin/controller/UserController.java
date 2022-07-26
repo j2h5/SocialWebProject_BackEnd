@@ -1,6 +1,7 @@
 package com.bit.fin.controller;
 
 import com.bit.fin.config.InMemoryTokenStore;
+import com.bit.fin.dto.AuthorityDto;
 import com.bit.fin.dto.MailDto;
 import com.bit.fin.dto.UserDto;
 import com.bit.fin.mapper.UserMapper;
@@ -28,6 +29,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -197,5 +199,8 @@ public class UserController {
     public void changeNick(@RequestBody UserDto dto){
         userService.changeNick(dto);
     }
+
+    @GetMapping("/getauth")
+    public int getAuthority(@RequestParam String user_id){ return userService.getAuth(user_id);}
 
 }

@@ -1,5 +1,6 @@
 package com.bit.fin.mapper;
 
+import com.bit.fin.dto.AuthorityDto;
 import com.bit.fin.dto.UserDto;
 
 import java.util.List;
@@ -26,4 +27,5 @@ public interface UserMapper {
     public void deleteUserAuth(int user_id); //회원 권한 삭제하기
     public void deleteUser(int user_id); // 회원 탈퇴하기
     public void changeNick(UserDto dto); //회원 닉네임 변경
+    public int getAuth(String user_id); //권한 가져오기 -> 로컬스토리지
 }
