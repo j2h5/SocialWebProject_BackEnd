@@ -11,4 +11,5 @@ public interface LikeMapper {
 	public int getTF(LikeDto dto);
 	public void pluslike(LikeDto dto);
 	public void minuslike(LikeDto dto);
+	public List<LikeDto> likelist(String username);
 }

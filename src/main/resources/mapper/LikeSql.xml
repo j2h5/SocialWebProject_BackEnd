@@ -15,4 +15,12 @@
    	delete from classlike where like_user_name=#{like_user_name} and like_class_num=#{like_class_num}
    </delete>
    
+   <select  id="likelist" parameterType="String" resultType="like">
+   	SELECT *
+	FROM class
+    INNER JOIN classlike
+    ON class.class_num = classlike.like_class_num
+    where classlike.like_user_name=#{username};
+   </select>
+   
 </mapper>
