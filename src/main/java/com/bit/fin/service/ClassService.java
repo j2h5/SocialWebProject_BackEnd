@@ -55,6 +55,12 @@ public class ClassService implements ClassServiceInter {
    }
    
    @Override
+	public List<ClassDto> getAllDatas2(String username) {
+		// TODO Auto-generated method stub
+		return classMapper.getAllDatas2(username);
+	}
+   
+   @Override
 	public void updateperson(PayDto dto) {
 		// TODO Auto-generated method stub
 		

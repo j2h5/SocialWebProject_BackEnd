@@ -36,6 +36,13 @@
    <select id="getAllDatas" resultType="class">
    	select * from class order by class_num desc
    </select>
+   <select id="getAllDatas2" parameterType="String" resultType="class">
+		SELECT *
+		FROM class
+		      Left outer JOIN classlike
+		    ON class.class_num = classlike.like_class_num
+		   where like_user_name=#{username} or like_user_name IS NULL;
+   </select>
    
    <update id="updateperson" parameterType="pay">
    	update classoption set classoption_presentperson=#{pay_classoption_percnt} where classoption_num=#{pay_classoption_num}

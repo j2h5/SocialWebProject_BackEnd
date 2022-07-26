@@ -105,6 +105,10 @@ public class ClassController {
    public List<ClassDto> getAllList(){
 	   return classService.getAllDatas();
    }
+   @GetMapping("/list2")
+   public List<ClassDto> getAllList2(@RequestParam String username){
+	   return classService.getAllDatas2(username);
+   }
    
    
       

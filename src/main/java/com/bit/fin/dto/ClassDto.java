@@ -31,6 +31,7 @@ public class ClassDto {
    private String class_anoun;
    private boolean class_anounok;   
    private String class_confirm;
+   private String like_user_name;
    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/seoul")
    private Timestamp class_signday;
 }
