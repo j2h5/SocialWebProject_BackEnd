@@ -115,4 +115,8 @@ public class UserService {
         userMapper.imsiPassword(map);
     };
 
+    public void deleteUser(int user_id){
+        userMapper.deleteUser(user_id);
+    }
+    public void deleteUserAuth(int user_id) { userMapper.deleteUserAuth(user_id);}
 }

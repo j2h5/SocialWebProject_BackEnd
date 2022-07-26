@@ -184,4 +184,12 @@ public class UserController {
         mailService.mailSend(maildto);
     }
 
+    //회원 탈퇴하기
+    @GetMapping("/deleteuser")
+    public void deleteUser(@RequestParam int user_id){
+        // 먼저 USER_Authority Table의 row 삭제하기
+        userService.deleteUserAuth(user_id);
+        userService.deleteUser(user_id);
+    }
+
 }

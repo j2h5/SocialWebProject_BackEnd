@@ -23,4 +23,6 @@ public interface UserMapper {
     public void changePassword(UserDto dto); // 비밀번호 변경
     public UserDto findByEmail(String email); //email으로 DTO정보 전부 불러오기(메일)
     public void imsiPassword(Map<String, String> map); //임시비밀번호로 변경
+    public void deleteUserAuth(int user_id); //회원 권한 삭제하기
+    public void deleteUser(int user_id); // 회원 탈퇴하기
 }

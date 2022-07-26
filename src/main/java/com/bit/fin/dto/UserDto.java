@@ -18,6 +18,9 @@ import java.util.stream.Collectors;
 public class UserDto {
 
     @Size(min = 1, max = 200)
+    private int user_id;
+
+    @Size(min = 1, max = 200)
     private String username;
 
     @Size(min = 1, max = 200)
