@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -190,6 +191,11 @@ public class UserController {
         // 먼저 USER_Authority Table의 row 삭제하기
         userService.deleteUserAuth(user_id);
         userService.deleteUser(user_id);
+    }
+    // 닉네임(realname)변경
+    @PostMapping("/nickchange")
+    public void changeNick(@RequestBody UserDto dto){
+        userService.changeNick(dto);
     }
 
 }

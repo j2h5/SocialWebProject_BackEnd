@@ -85,6 +85,7 @@ public class UserService {
         return userMapper.getProfile(username);
     }
 
+    //프로필 사진 변경
     public void insertProfile(UserDto dto) {
         userMapper.insertProfile(dto);
     }
@@ -119,4 +120,7 @@ public class UserService {
         userMapper.deleteUser(user_id);
     }
     public void deleteUserAuth(int user_id) { userMapper.deleteUserAuth(user_id);}
+    public void changeNick(UserDto dto) {
+        userMapper.changeNick(dto);
+    }
 }
