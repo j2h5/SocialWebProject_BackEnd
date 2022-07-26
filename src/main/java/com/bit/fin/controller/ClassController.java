@@ -120,5 +120,13 @@ public class ClassController {
 	   return classService.myclasstuty(username);
    }
    
+   @GetMapping("/search")
+   public List<ClassDto> search(@RequestParam String message){
+      System.out.println(message);
+      return classService.getSearch(message);
+   }
+
+   
+   
       
 }

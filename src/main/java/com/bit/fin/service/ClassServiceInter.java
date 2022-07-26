@@ -19,4 +19,5 @@ public interface ClassServiceInter {
    public void updateperson(PayDto dto);
    public List<ClassDto> myclasslist(String username);
    public List<ClassDto> myclasstuty(String username);
+   public List<ClassDto> getSearch(String message);
 }

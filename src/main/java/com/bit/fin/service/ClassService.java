@@ -78,4 +78,10 @@ public class ClassService implements ClassServiceInter {
 		// TODO Auto-generated method stub
 		return classMapper.myclasstuty(username);
 	}
+   
+   @Override
+   public List<ClassDto> getSearch(String message) {
+      return classMapper.getSearch(message);
+   }
+
 }

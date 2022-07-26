@@ -28,4 +28,6 @@ public interface ClassMapper {
 	public List<LikeDto> getLikeDatas();
 	public List<ClassDto> myclasslist(String username);//
 	public List<ClassDto> myclasstuty(String username);
+	public List<ClassDto> getSearch(String message);
+	
 }
