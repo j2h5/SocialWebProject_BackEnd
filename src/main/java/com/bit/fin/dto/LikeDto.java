@@ -22,6 +22,8 @@ public class LikeDto {
     private String class_location;
     private String class_name;
     private String class_photo1;
+    private int class_price;
+    private int class_hour;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/seoul")
     private Timestamp class_signday;
 }
