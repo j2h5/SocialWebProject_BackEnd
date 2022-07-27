@@ -92,7 +92,11 @@ public class UserController {
     public UserDto getProfile(@RequestParam String username) { return userService.getProfile(username);}
     
     @GetMapping("/getprofile2")
-    public UserDto getProfile2(@RequestParam String username) { return userService.getProfile2(username);}
+    public UserDto getProfile2(@RequestParam String username) { 
+    	System.out.println(username);
+    	System.out.println(userService.getProfile2(username));
+    	return userService.getProfile2(username);
+    	}
 
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
