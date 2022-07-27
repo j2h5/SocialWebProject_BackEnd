@@ -10,4 +10,6 @@ public interface PayServiceInter {
    public void insertPay(PayDto dto);
    public List<PayDto> getData(String pay_user_id);
    public List<PayDto> getAllDatas();
+   public int chk(String pay_user_id);
+
 }

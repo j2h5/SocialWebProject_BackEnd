@@ -49,6 +49,11 @@ public class PayController {
    {
       return PayService.getAllDatas();
    }
+   
+   @GetMapping("/chk")
+   public int chk(@RequestParam String pay_user_id) {
+	   return PayService.chk(pay_user_id);
+   }
 
 }
 

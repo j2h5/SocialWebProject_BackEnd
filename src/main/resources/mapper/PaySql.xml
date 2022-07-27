@@ -18,6 +18,10 @@
    <select id="getAllDatas" resultType="pay">
       select * from pay order by pay_num
    </select>
+   
+   <select id="chk" parameterType="String" resultType="int">
+   	select count(*) from pay where pay_user_id=#{pay_user_id}
+   </select>
 
    
 </mapper>
