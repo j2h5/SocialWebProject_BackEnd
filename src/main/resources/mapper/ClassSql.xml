@@ -41,7 +41,8 @@
 		FROM class
 		      Left outer JOIN classlike
 		    ON class.class_num = classlike.like_class_num
-		   where like_user_name=#{username} or like_user_name IS NULL;
+		   where like_user_name=#{username} or like_user_name IS NULL
+		   order by class_signday desc
    </select>
    
    <update id="updateperson" parameterType="pay">
