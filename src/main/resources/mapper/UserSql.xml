@@ -57,4 +57,7 @@
 		select count(*) from user_authority where user_id=#{user_id}
 	</select>
 
+	<select id="getProfile2" parameterType="String" resultType="user">
+		select profile from user where realname=#{username}
+	</select>
 </mapper>

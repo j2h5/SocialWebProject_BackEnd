@@ -90,6 +90,9 @@ public class UserController {
     //해당아이디 데이터 불러오기
     @GetMapping("/getprofile")
     public UserDto getProfile(@RequestParam String username) { return userService.getProfile(username);}
+    
+    @GetMapping("/getprofile2")
+    public UserDto getProfile2(@RequestParam String username) { return userService.getProfile2(username);}
 
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
