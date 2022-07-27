@@ -93,8 +93,7 @@ public class UserController {
     
     @GetMapping("/getprofile2")
     public UserDto getProfile2(@RequestParam String username) { 
-    	System.out.println(username);
-    	System.out.println(userService.getProfile2(username));
+
     	return userService.getProfile2(username);
     	}
 
