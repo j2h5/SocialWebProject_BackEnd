@@ -85,6 +85,9 @@ public class UserService {
     public UserDto getProfile(String username) {
         return userMapper.getProfile(username);
     }
+    public UserDto getProfile2(String username) {
+        return userMapper.getProfile(username);
+    }
 
     //프로필 사진 변경
     public void insertProfile(UserDto dto) {
