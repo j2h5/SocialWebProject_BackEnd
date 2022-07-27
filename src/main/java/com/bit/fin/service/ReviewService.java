@@ -1,8 +1,8 @@
 package com.bit.fin.service;
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,34 +18,38 @@ public class ReviewService implements ReviewServiceInter {
    
    @Override
    public void insertReview(ReviewDto dto) {
-      // TODO Auto-generated method stub
+    
+//	   int result = ReviewMapper.insertReview(dto);
+//	   setRating(dto.getClass_num());
+//	   return result;
       ReviewMapper.insertReview(dto);
    }
+
    @Override
    public int deleteReview(ReviewDto dto) {
-	   int result = ReviewMapper.deleteReview(dto.getClass_num());
+	   int result = ReviewMapper.deleteReview(dto.getClassreview_num());
 	   
+	   setRating(dto.getClass_num());
 	   return result;
    }
-   public void setRating(int class_num) {
-	   Double ratingAvg = ReviewMapper.getRatingAverage(class_num);
-   }
-
    @Override
-   public int getTotalCount() {
-      // TODO Auto-generated method stub
-      return ReviewMapper.getTotalCount();
-   }
+   public void setRating(int class_num) {
+		Double ratingAvg = ReviewMapper.getRatingAverage(class_num);
+		
+		if(ratingAvg == null ) {
+			ratingAvg = 0.0;
+		}
+		
+		ReviewDto cys = new ReviewDto();
+		cys.setClass_num(class_num);
+		cys.setRatingAvg(ratingAvg);
+		
+		ReviewMapper.updateRating(cys);
+	}
 
-//   @Override
-//   public List<ReviewDto> getPagingList(int start, int perpage) {
-//      // TODO Auto-generated method stub
-//      Map<String, Integer> map=new HashMap<>();
-//      map.put("start", start);
-//      map.put("perpage", perpage);
-//         
-//      return ReviewMapper.getPagingList(map);
-//   }
+
+
+
 
    @Override
    public List<ReviewDto> getAllDatas(int class_num) {
@@ -53,16 +57,14 @@ public class ReviewService implements ReviewServiceInter {
       return ReviewMapper.getAllDatas(class_num);
    }
 
+
+
+
 //   @Override
 //   public ReviewDto getData(int num) {
 //      // TODO Auto-generated method stub
 //      return ReviewMapper.getData(num);
 //   }
 
-//   @Override
-//   public void updateReadCount(int num) {
-//      // TODO Auto-generated method stub
-//      ReviewMapper.updateReadCount(num);
-//   }
 
 }

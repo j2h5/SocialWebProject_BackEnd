@@ -45,4 +45,7 @@ public class ClassDto {
    private String pay_classoption_endtime;
    private String pay_classoption_percnt;
    
+   
+   private double ratingAvg;
+   private int reviewSum;
 }

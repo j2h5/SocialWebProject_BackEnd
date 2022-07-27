@@ -14,6 +14,14 @@
 	<select id="getData" parameterType="int" resultType="review">
 		select * from classreview where class_num=#{class_num}
 	</select>
+	
+
+	<delete id="deleteReview" parameterType="int">
+		delete from review where
+		classreview_num=#{classreview_num}
+	</delete>
+	
+	
 	<select id="getRatingAverage" resultType="double">
   	
   		select avg(classreview_rate)
@@ -24,10 +32,12 @@
 
 	<update id="updateRating">
 	
-		update classreview
+		update class
 		set ratingAvg = #{ratingAvg}
 		where class_num = #{class_num}
 	
 	</update>
+	
+	
 	
 </mapper>
