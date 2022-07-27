@@ -4,4 +4,16 @@
     <select id="getClassSu" parameterType="String" resultType="int">
         select count(*) from class where class_location=#{class_location}
     </select>
+
+    <select id="getClassNum" parameterType="String" resultType="list">
+        select class_num from class where class_location=#{class_location}
+    </select>
+
+    <select id="" parameterType="int" resultType="int">
+        select count(*) from pay where
+        <foreach collection="list" item="pay_class_num" separator="or" index="index">
+            pay_class_num = #{pay_class_num}
+        </foreach>
+
+    </select>
 </mapper>
