@@ -22,6 +22,9 @@
 	<select id="loginCheck" parameterType="Map" resultType="int">
 		select count(*) from user where username=#{username} and password=#{password}
 	</select>
+	<select id="idCheck" parameterType="String" resultType="int">
+		select count(*) from user where username=#{username}
+	</select>
 
 	<select id="findByUsername" parameterType="String" resultType="user">
 		select * from user where username=#{username}

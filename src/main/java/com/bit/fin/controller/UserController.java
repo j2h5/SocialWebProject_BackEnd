@@ -158,7 +158,14 @@ public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    //로그인 시 아이디, 비밀번호 일치 여부 확인
+    //아이디존재유무 확인
+    @GetMapping("/idchk")
+    public int idchk(@RequestParam String username){
+        int result = userService.idCheck(username);
+        return result;
+    }
+
+    //로그인 시 아이디로 비밀번호 일치 여부 확인
     @PostMapping("/loginchk")
     public int loginCheck(@RequestBody UserDto dto ) throws Exception
     {

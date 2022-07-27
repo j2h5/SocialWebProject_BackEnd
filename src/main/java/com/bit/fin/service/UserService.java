@@ -125,4 +125,6 @@ public class UserService {
         userMapper.changeNick(dto);
     }
     public int getAuth(String user_id) { return userMapper.getAuth(user_id);    }
+    //아이디 존재유무 확인
+    public int idCheck(String username){return userMapper.idCheck(username);}
 }
