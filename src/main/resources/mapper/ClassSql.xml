@@ -50,7 +50,7 @@
    </update>
    
    <select id="myclasslist" parameterType="string" resultType="class">
-      select * from class where tutor_id=#{tutor_id}
+      select * from class where tutor_id=#{tutor_id} order by class_num desc
    </select>
    
    <select id="myclasstuty" parameterType="string" resultType="class">
