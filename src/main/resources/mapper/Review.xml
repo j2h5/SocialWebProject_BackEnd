@@ -17,7 +17,7 @@
 	
 
 	<delete id="deleteReview" parameterType="int">
-		delete from review where
+		delete from classreview where
 		classreview_num=#{classreview_num}
 	</delete>
 	

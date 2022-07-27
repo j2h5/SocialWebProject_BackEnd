@@ -10,13 +10,13 @@ import com.bit.fin.dto.ReviewDto;
 
 
 public interface ReviewServiceInter {
-//	public int insertReview(ReviewDto dto);
+	public int insertReview(ReviewDto dto);
 	
 //	public int getReviewSum(int class_num);
 	
-	public int deleteReview(ReviewDto dto);
+	public void deleteReview(int classreview_num);
 	
-	public void insertReview(ReviewDto dto);
+//	public void insertReview(ReviewDto dto);
 	
 	
 	//	public List<ReviewDto> getPagingList(int start,int perpage);
@@ -28,9 +28,7 @@ public interface ReviewServiceInter {
 //	public void setReviewSum(int class_num);
 
 
-	
 
-//	public void setRating(int class_num);
 
 
 

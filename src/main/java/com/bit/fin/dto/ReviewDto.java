@@ -62,7 +62,7 @@ import lombok.Data;
 		
 		private String classreview_photo;
 		
-		@JsonFormat(pattern="yyyy-MM-dd")
+		@JsonFormat(pattern="yyyy-MM-dd hh:mm")
 		
 		private Timestamp classreview_date;
 

@@ -17,20 +17,17 @@ public class ReviewService implements ReviewServiceInter {
    private ReviewMapper ReviewMapper;
    
    @Override
-   public void insertReview(ReviewDto dto) {
+   public int insertReview(ReviewDto dto) {
     
-//	   int result = ReviewMapper.insertReview(dto);
-//	   setRating(dto.getClass_num());
-//	   return result;
-      ReviewMapper.insertReview(dto);
+	   int result = ReviewMapper.insertReview(dto);
+	   setRating(dto.getClass_num());
+	   return result;
+
    }
 
    @Override
-   public int deleteReview(ReviewDto dto) {
-	   int result = ReviewMapper.deleteReview(dto.getClassreview_num());
-	   
-	   setRating(dto.getClass_num());
-	   return result;
+   public void deleteReview(int classreview_num) {
+	   ReviewMapper.deleteReview(classreview_num);
    }
    @Override
    public void setRating(int class_num) {
