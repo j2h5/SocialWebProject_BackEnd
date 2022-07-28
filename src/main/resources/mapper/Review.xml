@@ -12,7 +12,7 @@
 		select * from classreview where class_num=#{class_num} order by class_num desc
 	</select>
 	<select id="getData" parameterType="int" resultType="review">
-		select * from classreview where class_num=#{class_num}
+		select * from classreview where class_num=#{class_num} order by classreview_date desc
 	</select>
 	
 
