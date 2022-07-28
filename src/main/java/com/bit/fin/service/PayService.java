@@ -33,9 +33,9 @@ public class PayService implements PayServiceInter {
    }
    
    @Override
-	public int chk(String pay_user_id) {
+	public PayDto chk(PayDto dto) {
 		// TODO Auto-generated method stub
-		return PayMapper.chk(pay_user_id);
+		return PayMapper.chk(dto);
 	}
 
 }

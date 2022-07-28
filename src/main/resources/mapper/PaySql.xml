@@ -19,8 +19,8 @@
       select * from pay order by pay_num
    </select>
    
-   <select id="chk" parameterType="String" resultType="int">
-   	select count(*) from pay where pay_user_id=#{pay_user_id}
+   <select id="chk" parameterType="pay" resultType="pay">
+   	select * from pay where pay_user_id=#{pay_user_id} and pay_class_num=#{pay_class_num}
    </select>
 
    

@@ -50,9 +50,10 @@ public class PayController {
       return PayService.getAllDatas();
    }
    
-   @GetMapping("/chk")
-   public int chk(@RequestParam String pay_user_id) {
-	   return PayService.chk(pay_user_id);
+   @PostMapping("/chk")
+   public PayDto chk(@RequestBody PayDto dto) {
+	   System.out.println(dto);
+	   return PayService.chk(dto);
    }
 
 }
