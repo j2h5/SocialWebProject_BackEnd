@@ -74,16 +74,13 @@ public class TokenProvider implements InitializingBean {  //bean 생성
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
-
         // Claim에서 권한정보들을 빼내서
         Collection<? extends GrantedAuthority> authorities =
                 Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toList());
-
         // Claim에서 빼낸 권한 정보를 이용해서 User 객체 생성
         User principal = new User(claims.getSubject(), "", authorities);
-
         //User객체, 토큰, 권한정보를 이용해서 최종적으로 Authentication 객체를 리턴
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }

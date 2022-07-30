@@ -61,8 +61,8 @@ public class AuthController {
         //jwt 토큰을 Header에 넣어주기
         httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
-        //username과 jwt 토큰을 저장
-        //inMemoryTokenStore.setTokenStore(loginDto.getUsername(), jwt);
+        //username과 jwt 토큰을 inMemoryTokenStore에 저장
+        inMemoryTokenStore.setTokenStore(loginDto.getUsername(), jwt);
 
         //jwt 토큰을 ResponseBody에도  넣어서 리턴
         return new ResponseEntity<>(new TokenDto(jwt), httpHeaders, HttpStatus.OK);
